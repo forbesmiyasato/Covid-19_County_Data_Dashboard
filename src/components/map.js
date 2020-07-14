@@ -4,17 +4,15 @@ import { withGoogleMap, GoogleMap } from "react-google-maps";
 const Map = (props) => {
   const GoogleMapExample = withGoogleMap((props) => (
     <GoogleMap
-      defaultCenter={{ lat: 40.756795, lng: -73.954298 }}
-      defaultZoom={13}
+      defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
+      defaultZoom={4}
     ></GoogleMap>
   ));
-
-  console.log(process.env.REACT_APP_GOOGLE_API);
   
   return (
-    <div>
+    <div class="container">
       <GoogleMapExample
-        containerElement={<div style={{ height: `500px`, width: "500px" }} />}
+        containerElement={<div style={{ height: `500px`, width: "100%" }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
     </div>
