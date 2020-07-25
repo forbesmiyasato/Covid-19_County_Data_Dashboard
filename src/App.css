@@ -1,4 +1,4 @@
-
+/*
 
 .App {
   text-align: center;
@@ -32,18 +32,35 @@
 .App-link {
   color: #61dafb;
 }
+*/
+
 
 view {
   display: flex;
   flex-wrap: wrap;
   flex-direction: horizontal;
   justify-content: center;
-
+  background-color: black;
 }
 
 #dashboardName {
   font-size: 30px;
   color: white;
+}
+
+.side {
+  margin: 5px;
+  width: 24%;
+  height: 100% - 110px;
+  background-color: darkslategrey
+}
+
+#dashboardMap{
+  margin: 5px;
+  padding: 2px;
+  width: 48%;
+  height: 100% - 110px;
+  background-color: black
 }
 
 #headerContainer {
