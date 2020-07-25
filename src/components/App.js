@@ -7,10 +7,11 @@ const App = () => {
     <view>
       <div id="headerContainer">
         <h1 id="dashboardName">Coronavirus US County Tracker</h1>
-      </div>      
+      </div> 
       <div class="side">Test</div>
-      <div id="dashboardMap"><Map></Map> 3</div>
+      <div id="dashboardMap"><Map></Map></div>
       <div class="side">Test 2</div>
+        
     </view>
            
   )
