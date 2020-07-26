@@ -35,46 +35,54 @@ app.get("/all", function (req, res) {
             result.push(countyBoundary);
         }
         response = result;
+        console.log(response);
         res.setHeader("Content-Type", "application/json");
         res.json(response);
     });
 });
 
-app.get("/api", function (req, res) {
-    fs.readFile(__dirname + "/states/" + req.query.state + ".json", function (
-        err,
-        data
-    ) {
-        if (err) {
-            console.log(err);
-            res.send("No such State");
-            return;
-        }
-        console.log(req.query);
-        jsonData = JSON.parse(data.toString());
-        let response = "No such county";
-        for (x in jsonData) {
-            if (jsonData[x]["County Name"] === req.query.county) {
-                let coordinates = getCoordinates(jsonData[x].geometry);
-                let countyBoundary = new Object();
-                countyBoundary.state = req.query.state;
-                countyBoundary.county = req.query.county;
-                countyBoundary.shape = coordinates;
-                response = countyBoundary;
-                break;
-            }
-        }
-        res.setHeader("Content-Type", "application/json");
-        res.json(response);
-    });
-});
+// app.get("/all", function (req, res) {
+//     var result = [];
+//     fs.readdirSync(__dirname + "/states/", function (err, files) {
+//         if (err) {
+//             console.log(err);
+//             res.send("No such folder");
+//             return;
+//         }
+//         console.log(files);
+//         files.forEach((file) => {
+//             fs.readFile(__dirname + "/states/" + file, function (err, data) {
+//                 jsonData = JSON.parse(data.toString());
+//                 for (x in jsonData) {
+//                     if (jsonData[x].geometry == undefined) {
+//                         break;
+//                     }
+//                     let countyBoundary = new Object();
+//                     countyBoundary.county = jsonData[x]["County Name"];
+//                     countyBoundary.state = jsonData[x]["State Abbr."];
+//                     let coordinates = getCoordinates(jsonData[x].geometry);
+//                     countyBoundary.shape = coordinates;
+//                     result.push(countyBoundary);
+//                 }
+//             });
+//         });
+//         console.log(result)
+//     });
+//     res.setHeader("Content-Type", "application/json");
+//     console.log(result)
+
+//     res.json(result);
+// });
 
 function getCoordinates(data) {
     let rawCoordinates = data.split(" ");
     let polishedCoordinates = [];
     for (x in rawCoordinates) {
         coord = rawCoordinates[x].split(",");
-        polishedCoordinates.push(coord.reverse());
+        let coords = new Object();
+        coords.lat = parseFloat(coord[1]);
+        coords.lng = parseFloat(coord[0]);
+        polishedCoordinates.push(coords);
     }
     return polishedCoordinates;
 }
