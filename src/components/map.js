@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useRef, useEffect} from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 
 const coords = [
@@ -11,6 +11,9 @@ const coords = [
 const Map = (props) => {
   const mapRef = useRef(null);
 
+  // useEffect(async () => {
+  //   const counties = await
+  // })
   const GoogleMapExample = withGoogleMap((props) => (
     <GoogleMap
       defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
@@ -27,14 +30,14 @@ const Map = (props) => {
           strokeOpacity: 1,
           strokeWeight: 1,
         }}
-        onClick={() => {
-          const map = mapRef;
-          const google = this.props.google;
-          const maps = google.maps;
-          if (map) {
-            map.panTo(coords[0]);
-          }
-        }}
+        // onClick={() => {
+        //   const map = mapRef;
+        //   const google = this.props.google;
+        //   const maps = google.maps;
+        //   if (map) {
+        //     map.panTo(coords[0]);
+        //   }
+        // }}
       />
     </GoogleMap>
   ));
