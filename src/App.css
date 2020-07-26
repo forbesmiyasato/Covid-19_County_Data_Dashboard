@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
 }
@@ -13,6 +15,8 @@
   }
 }
 
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,9 +28,57 @@
   color: white;
 }
 
+
 .App-link {
   color: #61dafb;
 }
+
+
+view {
+  padding: none;
+  height: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: horizontal;
+  justify-content: center;
+  align-content: flex-start;
+  background-color: black;
+}
+
+
+#headerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background-color: #030070;
+}
+
+#dashboardName {
+  font-size: 30px;
+  color: white;
+}
+
+.side {
+  margin: 5px;
+  height: 100%;
+  width: 24%;
+  height: calc(100% - 110px);
+  background-color: darkslategrey
+}
+
+#dashboardMap{
+  margin: 5px;
+  height: calc(100% - 110px);
+  width: 48%;
+  height: auto;
+  background-color: black
+}
+
+
+
 
 @keyframes App-logo-spin {
   from {
@@ -36,3 +88,4 @@
     transform: rotate(360deg);
   }
 }
+
