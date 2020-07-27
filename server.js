@@ -18,9 +18,7 @@ app.get("/all", function (req, res) {
             res.send("No such State");
             return;
         }
-        console.log(req.query);
         jsonData = JSON.parse(data.toString());
-        let response = "No such county";
         let result = [];
 
         for (x in jsonData) {
@@ -34,10 +32,8 @@ app.get("/all", function (req, res) {
             countyBoundary.shape = coordinates;
             result.push(countyBoundary);
         }
-        response = result;
-        console.log(response);
         res.setHeader("Content-Type", "application/json");
-        res.json(response);
+        res.json(result);
     });
 });
 
