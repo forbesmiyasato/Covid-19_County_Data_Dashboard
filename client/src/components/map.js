@@ -39,9 +39,10 @@ const Map = (props) => {
             defaultZoom={4}
             onReady={(mapProps, map) => (mapRef = map)}
         >
-            {data.map((county) => {
+            {data.map((county, i) => {
                 return (
                     <Polygon
+                        key={i}
                         path={county.shape}
                         options={{
                             fillColor: getRandomColor(),
@@ -50,6 +51,9 @@ const Map = (props) => {
                             strokeOpacity: 1,
                             strokeWeight: 1,
                         }}
+                        onClick={() => {
+                            console.log (county.county)}
+                        }
                     />
                 );
             })}
