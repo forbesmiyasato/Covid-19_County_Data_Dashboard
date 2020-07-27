@@ -29,7 +29,7 @@ const App = () => {
             console.log(selectedCounty);
         }
     };
-
+    
     return (
         <view>
             <div id="headerContainer">

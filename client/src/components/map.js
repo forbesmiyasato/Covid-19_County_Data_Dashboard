@@ -33,7 +33,7 @@ const Map = (props) => {
 
         fetchData();
     }, []);
-
+    
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}

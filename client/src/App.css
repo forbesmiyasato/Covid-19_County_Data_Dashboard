@@ -62,15 +62,20 @@ view {
 }
 
 .side {
-  margin: 5px;
-  height: 100%;
+  display: flex;
+  justify-content: center;
+  border: solid;
+  border-radius: 10px;
+  border-color: silver;
+  border-width: thin;
+  margin: 8px;
   width: 24%;
   height: calc(100% - 110px);
-  background-color: darkslategrey;
+  background-color: #444040;
 }
 
 #dashboardMap{
-  margin: 5px;
+  margin: 8px;
   height: calc(100% - 110px);
   width: 48%;
   height: auto;
