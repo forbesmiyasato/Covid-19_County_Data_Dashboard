@@ -71,7 +71,8 @@ view {
   border-width: thin;
   margin: 8px;
   width: 24%;
-  height: calc(100% - 110px);
+  min-height: 100%;
+  height: auto;
   background-color: #444040;
 }
 
@@ -90,9 +91,6 @@ view {
     font-size: 26px;
   }
 
-  view {
-
-  }
   .side:nth-child(2){
     display: none;
   }
