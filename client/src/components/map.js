@@ -12,34 +12,22 @@ const coords = [
 const Map = (props) => {
     const mapRef = useRef(null);
     const [geometryData, setGeometryData] = useState([]);
-    const [healthData, setHealthData] = useState([]);
-    //random color code from https://stackoverflow.com/questions/1484506/random-color-generator
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF';
-      var color = '#';
-      for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
 
+    console.log(props.healthData)
     const getColor = (countyName, stateName) => {
-        const found = healthData.find(element => 
+        const found = props.healthData.find(element => 
             element["county_name"] == countyName && element["state_name"] == stateName);
         if (found) {
-            if (found["confirmed"] > 1000) return '#FF3333'
-            else if (found["confirmed"] > 100) return '#FFFB33'
-            else if (found["confirmed"] > 0) return '#3AFF33'
+            if (found["new"] > 100) return '#FF3333'
+            else if (found["new"] > 0) return '#FFFB33'
+            else if (found["new"] === 0) return '#3AFF33'
         }
-        else return '#3AFF33'
+        else return '#000'
     }
 
     useEffect(() => {
         async function fetchData() {
-            const healthResult = await axios("https://covid19-us-api.herokuapp.com/county");
-            setHealthData(healthResult.data.message);
-            
-            const geoResult = await axios("http://localhost:5000/all?state=OR");
+             const geoResult = await axios("http://localhost:5000/all?state=OR");
             setGeometryData(geoResult.data);
         }
 
@@ -64,9 +52,7 @@ const Map = (props) => {
                             strokeOpacity: 1,
                             strokeWeight: 1,
                         }}
-                        onClick={() => {
-                            console.log (county.county)}
-                        }
+                        onClick={props.onClick.bind(this, county.county, county.state)}
                     />
                 );
             })}
@@ -75,7 +61,8 @@ const Map = (props) => {
 
     return (
         <div class="container">
-            <GoogleMapExample
+            <GoogleMapExample 
+                onClick={props.onClick}
                 containerElement={
                     <div style={{ height: `500px`, width: "100%" }} />
                 }
