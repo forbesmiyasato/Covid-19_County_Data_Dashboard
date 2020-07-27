@@ -11,8 +11,8 @@ const coords = [
 
 const Map = (props) => {
     const mapRef = useRef(null);
-    const [data, setData] = useState([]);
-
+    const [geometryData, setGeometryData] = useState([]);
+    const [healthData, setHealthData] = useState([]);
     //random color code from https://stackoverflow.com/questions/1484506/random-color-generator
     function getRandomColor() {
       var letters = '0123456789ABCDEF';
@@ -23,11 +23,24 @@ const Map = (props) => {
       return color;
     }
 
+    const getColor = (countyName, stateName) => {
+        const found = healthData.find(element => 
+            element["county_name"] == countyName && element["state_name"] == stateName);
+        if (found) {
+            if (found["confirmed"] > 1000) return '#FF3333'
+            else if (found["confirmed"] > 100) return '#FFFB33'
+            else if (found["confirmed"] > 0) return '#3AFF33'
+        }
+        else return '#3AFF33'
+    }
+
     useEffect(() => {
         async function fetchData() {
-            const result = await axios("http://localhost:5000/all?state=OR");
-            setData(result.data);
-            console.log(result.data);
+            const healthResult = await axios("https://covid19-us-api.herokuapp.com/county");
+            setHealthData(healthResult.data.message);
+            
+            const geoResult = await axios("http://localhost:5000/all?state=OR");
+            setGeometryData(geoResult.data);
         }
 
         fetchData();
@@ -39,13 +52,13 @@ const Map = (props) => {
             defaultZoom={4}
             onReady={(mapProps, map) => (mapRef = map)}
         >
-            {data.map((county, i) => {
+            {geometryData.map((county, i) => {
                 return (
                     <Polygon
                         key={i}
                         path={county.shape}
                         options={{
-                            fillColor: getRandomColor(),
+                            fillColor: getColor(county.county, county.state),
                             fillOpacity: 0.4,
                             strokeColor: "#000",
                             strokeOpacity: 1,

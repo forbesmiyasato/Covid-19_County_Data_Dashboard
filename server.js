@@ -27,8 +27,8 @@ app.get("/all", function (req, res) {
             }
             let countyBoundary = new Object();
             countyBoundary.county = jsonData[x]["County Name"];
+            countyBoundary.state = jsonData[x]["Geographic Name"].split(", ")[1];
             let coordinates = getCoordinates(jsonData[x].geometry);
-            countyBoundary.state = req.query.state;
             countyBoundary.shape = coordinates;
             result.push(countyBoundary);
         }
