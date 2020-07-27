@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from './map';
-import '../App.css'
+import 'App.css'
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <div id="headerContainer">
         <h1 id="dashboardName">Coronavirus US County Tracker</h1>
       </div> 
-      <div class="side">Test</div>
+      <div class="side">Test 4</div>
       <div id="dashboardMap"><Map></Map></div>
       <div class="side">Test 2</div>
         

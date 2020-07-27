@@ -1,4 +1,4 @@
-
+/*
 
 .App {
   text-align: center;
@@ -33,7 +33,7 @@
   color: #61dafb;
 }
 
-
+*/
 view {
   height: 100vh;
   width: 100vw;
@@ -53,7 +53,7 @@ view {
   align-items: center;
   width: 100%;
   height: 100px;
-  background-color: #030070;
+  background-color: red;
 }
 
 #dashboardName {
@@ -66,7 +66,7 @@ view {
   height: 100%;
   width: 24%;
   height: calc(100% - 110px);
-  background-color: darkslategrey
+  background-color: darkslategrey;
 }
 
 #dashboardMap{
@@ -74,10 +74,28 @@ view {
   height: calc(100% - 110px);
   width: 48%;
   height: auto;
-  background-color: black
+  background-color: black;
 }
 
 
+@media screen and (max-width: 1024px) {
+ 
+  /*
+  .side:first-of-type{
+    visibility: hidden;
+    background-color: pink;
+  }
+  .side.side:second-of-type{
+    width: 100%;
+    height: 400px;
+    background-color: pink;
+  }
+  
+  #dashboardMap{
+    width: 100%;
+  }
+  */
+}
 
 
 @keyframes App-logo-spin {
