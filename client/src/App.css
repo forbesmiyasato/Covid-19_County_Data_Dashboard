@@ -36,8 +36,8 @@
 
 view {
   height: auto;
-  min-height: 100vh;
-  width: 100vw;
+  min-height: 100vh%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: horizontal;
@@ -91,9 +91,8 @@ view {
   }
 
   view {
-    justify-conent: center;
+
   }
-  
   .side:nth-child(2){
     display: none;
   }
