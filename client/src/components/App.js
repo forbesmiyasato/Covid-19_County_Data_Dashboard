@@ -22,12 +22,12 @@ const App = () => {
     const onMapCountyClick = (name, state) => {
         const found = healthData.find(
             (element) =>
-                element["county_name"] == name && element["state_name"] == state
+                element["county_name"] === name && element["state_name"] === state
         );
         if (found) {
             setSelectedCounty(found);
-            console.log(selectedCounty);
         }
+        console.log(found)
     };
     
     return (

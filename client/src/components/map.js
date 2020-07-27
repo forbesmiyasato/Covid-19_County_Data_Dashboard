@@ -2,21 +2,14 @@ import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import axios from "axios";
 
-const coords = [
-    { lat: 40, lng: -70 },
-    { lat: 50, lng: -70 },
-    { lat: 50, lng: -80 },
-    { lat: 40, lng: -80 },
-];
-
 const Map = (props) => {
     const mapRef = useRef(null);
     const [geometryData, setGeometryData] = useState([]);
 
-    console.log(props.healthData)
+
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(element => 
-            element["county_name"] == countyName && element["state_name"] == stateName);
+            element["county_name"] === countyName && element["state_name"] === stateName);
         if (found) {
             if (found["new"] > 100) return '#FF3333'
             else if (found["new"] > 0) return '#FFFB33'
@@ -33,7 +26,7 @@ const Map = (props) => {
 
         fetchData();
     }, []);
-    
+
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
