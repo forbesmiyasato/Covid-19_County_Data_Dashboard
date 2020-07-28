@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-radius: 2%;
+    font-family: sans-serif;
+    font-size: 1.2em;
+}
+
+.headerInfo {
+    font-size: 1em;
+    font-weight: bolder;
+}
+
+#state,
+#byState,
+#county,
+#byCounty {
+
+    font-size: .8em;
+
+}
+
+.grid-item {
+    padding: 10px;
+    background-color: whitesmoke;
+    color: rgb(39, 26, 26);
+    text-align: left;
+}
+
+/* Add your code here */
+@media (min-width: 415px) {
+    .grid-container {
+        display: grid;
+        flex-wrap: wrap;
+        font-size: 50%;
+        font-weight: lighter;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2px;
+
+    }
+
+    .confirmed {
+        grid-row-start: 1;
+        grid-row-end: 1;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        order: 0;
+    }
+
+    .recovered {
+        grid-row-start: 1;
+        grid-row-end: 1;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        order: 1;
+    }
+
+    .deaths {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        order: 2;
+    }
+
+    .race {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        order: 3;
+    }
+
+    .average-age {
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        order: 4;
+    }
+
+    .income {
+        grid-row-start: 3;
+        grid-row-end: 3;
+        grid-column-start: 2;
+        grid-column-end: 2;
+        order: 5;
+    }
+}
+
+@media (max-width: 414px) {
+    .grid-container {
+        display: grid;
+        flex-wrap: wrap;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+        font-size: 50%;
+        gap: 2px;
+    }
+
+    .confirmed {
+        grid-row-start: 1;
+        grid-row-end: 1;
+        order: 0;
+    }
+
+    .recovered {
+        grid-row-start: 2;
+        grid-row-end: 2;
+        order: 1;
+    }
+
+    .deaths {
+        grid-row-start: 3;
+        grid-row-end: 3;
+        order: 2;
+    }
+
+    .race {
+        grid-row-start: 4;
+        grid-row-end: 4;
+        order: 3;
+    }
+
+    .average-age {
+        grid-row-start: 5;
+        grid-row-end: 5;
+        order: 4;
+    }
+
+    .income {
+        grid-row-start: 6;
+        grid-row-end: 6;
+        order: 5;
+    }
+}
