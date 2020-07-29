@@ -62,7 +62,7 @@ view {
   color: white;
 }
 
-.side {
+.dataContainer {
   display: flex;
   justify-content: center;
   border: solid;
@@ -71,10 +71,12 @@ view {
   border-width: thin;
   margin: 8px;
   width: 24%;
-  min-height: 100%;
+  min-height: 300px;
   height: auto;
   background-color: #444040;
 }
+
+
 
 #dashboardMap{
   margin: 8px;
@@ -91,11 +93,11 @@ view {
     font-size: 26px;
   }
 
-  .side:nth-child(2){
+  .dataContainer:nth-of-type(1){
     display: none;
   }
   
-  .side:nth-child(4){
+  .dataContainer:nth-of-type(2){
     margin-top: 10px;
     margin-bottom: 10px;
     width: 90%;

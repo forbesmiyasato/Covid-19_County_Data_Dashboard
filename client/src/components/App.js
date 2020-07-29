@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Map from "./map";
 import "../App.css";
 import CountyOverview from "./countyOverview";
+import TopCounties from "./topCounties";
 import USOverview from "./usOverview";
 import axios from "axios";
 
@@ -56,13 +57,14 @@ const App = () => {
             <div id="headerContainer">
                 <h1 id="dashboardName">Coronavirus US County Tracker</h1>
             </div>
-            <div class="side">Test</div>
+            <div class="dataContainer">Test</div>
             <div id="dashboardMap">
                 <Map
                     geometryData={geometryData}
                     healthData={healthData}
                     onClick={onMapCountyClick}
                 ></Map>
+                <TopCounties></TopCounties>
             </div>
             {selectedCounty ? (
                 <CountyOverview data={selectedCounty}></CountyOverview>

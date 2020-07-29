@@ -1,10 +1,12 @@
 import React from "react"
 import "../topCounties.css"
 
-const topCounties = (props) =>{
+const topCounties = () => {
     return (
-        <div class="container">
-            
+        <div class="dataContainer" id="topContainer">
+            Test 3
         </div>
     );
-}
+};
+
+export default topCounties;
