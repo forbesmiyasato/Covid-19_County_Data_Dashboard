@@ -57,7 +57,7 @@ const App = () => {
             <div id="headerContainer">
                 <h1 id="dashboardName">Coronavirus US County Tracker</h1>
             </div>
-            <div class="dataContainer">Test</div>
+            <div class="side">Test</div>
             <div id="dashboardMap">
                 <Map
                     geometryData={geometryData}

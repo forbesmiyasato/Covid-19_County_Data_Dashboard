@@ -62,9 +62,10 @@ view {
   color: white;
 }
 
-.dataContainer {
+.side {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   border: solid;
   border-radius: 10px;
   border-color: silver;

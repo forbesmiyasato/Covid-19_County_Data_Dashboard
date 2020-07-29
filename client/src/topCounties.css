@@ -1,6 +1,58 @@
 
+
+
 #topContainer {
     height: 100px;
     width: 98%;
+}
 
+#topSelector {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #1414aa;
+    color: white;
+}
+
+input[type=button] {
+    border-left: 1px white solid;
+    border-right: 1px white solid;
+    border-top: none;
+    border-bottom: none;
+    background-color: #1414aa;
+    color: white;
+    height: 100%;
+}
+
+input[type=button]:hover {
+    opacity: 0.7;
+    background-color: #aa1414;
+}
+
+input[type=button]:focus {
+    opacity: 1;
+    background-color: #aa1414;
+}
+
+input[type=button]:active {
+    opacity: 1;
+    background-color: #aa1414;
+}
+
+.countyHolder {
+    height: calc(20% - 8px);
+    width: 100%;
+    border: 1px white solid;
+    border-left: none;
+    border-right: none;
+    color: white;
+    padding: 5px;
+}
+
+.countyHolder:last-of-type {
+    border-radius: 0px 0px 10px 10px;
 }

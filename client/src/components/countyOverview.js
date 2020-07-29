@@ -4,7 +4,7 @@ import "../countyOverview.css";
 const countyOverview = (props) => {
     console.log(props.data);
     return (
-        <div class="dataContainer">
+        <div class="side">
             <div class="headerInfo">Cases overview</div>
             <div id="state">
                 State:

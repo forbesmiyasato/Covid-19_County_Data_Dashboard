@@ -3,7 +3,7 @@ import React from "react";
 const countyOverview = (props) => {
     let data = props.data
     return (
-        <div class="dataContainer">
+        <div class="side">
             <h3>USA Overview</h3>
             <p>{data.cases}</p>
             <p>{data.deaths}</p>
