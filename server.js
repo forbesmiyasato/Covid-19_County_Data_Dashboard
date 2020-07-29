@@ -9,6 +9,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/all", function (req, res) {
+    console.log("Received Request")
     fs.readFile(__dirname + "/states/" + req.query.state + ".json", function (
         err,
         data

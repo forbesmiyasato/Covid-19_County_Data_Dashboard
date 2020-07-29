@@ -7,6 +7,7 @@ import axios from "axios";
 const App = () => {
     const [healthData, setHealthData] = useState([]);
     const [selectedCounty, setSelectedCounty] = useState({});
+    const [geometryData, setGeometryData] = useState([]);
 
     useEffect(() => {
         async function fetchData() {
@@ -14,6 +15,9 @@ const App = () => {
                 "https://covid19-us-api.herokuapp.com/county"
             );
             setHealthData(healthResult.data.message);
+
+            const geoResult = await axios("http://localhost:5000/all?state=OR");
+            setGeometryData(geoResult.data);
         }
 
         fetchData();
@@ -37,7 +41,7 @@ const App = () => {
             </div>
             <div class="side">Test</div>
             <div id="dashboardMap">
-                <Map healthData={healthData} onClick={onMapCountyClick}></Map>
+                <Map geometryData={geometryData} healthData={healthData} onClick={onMapCountyClick}></Map>
             </div>
             <RightSideBar data={selectedCounty}></RightSideBar>
         </view>

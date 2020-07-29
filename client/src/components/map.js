@@ -4,8 +4,6 @@ import axios from "axios";
 
 const Map = (props) => {
     const mapRef = useRef(null);
-    const [geometryData, setGeometryData] = useState([]);
-
 
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(element => 
@@ -18,14 +16,7 @@ const Map = (props) => {
         else return '#000'
     }
 
-    useEffect(() => {
-        async function fetchData() {
-             const geoResult = await axios("http://localhost:5000/all?state=OR");
-            setGeometryData(geoResult.data);
-        }
-
-        fetchData();
-    }, []);
+    console.log(props.geometryData);
 
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
@@ -33,7 +24,8 @@ const Map = (props) => {
             defaultZoom={4}
             onReady={(mapProps, map) => (mapRef = map)}
         >
-            {geometryData.map((county, i) => {
+            {props.geometryData && props.geometryData.map((county, i) => {
+                console.log(county);
                 return (
                     <Polygon
                         key={i}
@@ -42,8 +34,8 @@ const Map = (props) => {
                             fillColor: getColor(county.county, county.state),
                             fillOpacity: 0.4,
                             strokeColor: "#000",
-                            strokeOpacity: 1,
-                            strokeWeight: 1,
+                            strokeOpacity: 0.4,
+                            strokeWeight: 0.5,
                         }}
                         onClick={props.onClick.bind(this, county.county, county.state)}
                     />
@@ -54,7 +46,8 @@ const Map = (props) => {
 
     return (
         <div class="container">
-            <GoogleMapExample 
+            <GoogleMapExample
+                geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
                     <div style={{ height: `500px`, width: "100%" }} />
