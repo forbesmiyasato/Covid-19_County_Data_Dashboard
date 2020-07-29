@@ -38,39 +38,6 @@ app.get("/all", function (req, res) {
     });
 });
 
-// app.get("/all", function (req, res) {
-//     var result = [];
-//     fs.readdirSync(__dirname + "/states/", function (err, files) {
-//         if (err) {
-//             console.log(err);
-//             res.send("No such folder");
-//             return;
-//         }
-//         console.log(files);
-//         files.forEach((file) => {
-//             fs.readFile(__dirname + "/states/" + file, function (err, data) {
-//                 jsonData = JSON.parse(data.toString());
-//                 for (x in jsonData) {
-//                     if (jsonData[x].geometry == undefined) {
-//                         break;
-//                     }
-//                     let countyBoundary = new Object();
-//                     countyBoundary.county = jsonData[x]["County Name"];
-//                     countyBoundary.state = jsonData[x]["State Abbr."];
-//                     let coordinates = getCoordinates(jsonData[x].geometry);
-//                     countyBoundary.shape = coordinates;
-//                     result.push(countyBoundary);
-//                 }
-//             });
-//         });
-//         console.log(result)
-//     });
-//     res.setHeader("Content-Type", "application/json");
-//     console.log(result)
-
-//     res.json(result);
-// });
-
 function getCoordinates(data) {
     let rawCoordinates = data.split(" ");
     let polishedCoordinates = [];
@@ -80,6 +47,12 @@ function getCoordinates(data) {
         coords.lat = parseFloat(coord[1]);
         coords.lng = parseFloat(coord[0]);
         polishedCoordinates.push(coords);
+        // if (coords.lat == null || coords.lat == NaN || coords.lat == undefined) {
+        //     console.log(coords.lat)
+        // }
+        // if (coords.lng == null || coords.lng == NaN || coords.lng == undefined) {
+        //     console.log(coords.lng)
+        // }
     }
     return polishedCoordinates;
 }

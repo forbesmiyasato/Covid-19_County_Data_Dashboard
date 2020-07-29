@@ -1,39 +1,56 @@
 import React, { useEffect, useState } from "react";
 import Map from "./map";
 import "../App.css";
-import RightSideBar from "./RightSideBar";
+import CountyOverview from "./countyOverview";
+import USOverview from "./usOverview";
 import axios from "axios";
 
 const App = () => {
     const [healthData, setHealthData] = useState([]);
-    const [selectedCounty, setSelectedCounty] = useState({});
+    const [selectedCounty, setSelectedCounty] = useState(null);
     const [geometryData, setGeometryData] = useState([]);
-
+    const [overviewUS, setOverviewUS] = useState({});
     useEffect(() => {
-        async function fetchData() {
-            const healthResult = await axios(
-                "https://covid19-us-api.herokuapp.com/county"
-            );
-            setHealthData(healthResult.data.message);
-
+        async function fetchGeometryData() {
             const geoResult = await axios("http://localhost:5000/all?state=OR");
             setGeometryData(geoResult.data);
         }
 
-        fetchData();
+        async function fetchHealthData() {
+            const healthResult = await axios(
+                "https://covid19-us-api.herokuapp.com/county"
+            );
+            setHealthData(healthResult.data.message);
+        }
+
+        async function fetchOverviewUS() {
+            const overviewResult = await axios(
+                "https://coronavirus-19-api.herokuapp.com/countries/usa"
+            );
+            setOverviewUS(overviewResult.data);
+        }
+
+        Promise.all([
+            fetchGeometryData(),
+            fetchHealthData(),
+            fetchOverviewUS(),
+        ]);
     }, []);
+
+    console.log(overviewUS);
 
     const onMapCountyClick = (name, state) => {
         const found = healthData.find(
             (element) =>
-                element["county_name"] === name && element["state_name"] === state
+                element["county_name"] === name &&
+                element["state_name"] === state
         );
         if (found) {
             setSelectedCounty(found);
         }
-        console.log(found)
+        console.log(found);
     };
-    
+
     return (
         <view>
             <div id="headerContainer">
@@ -41,9 +58,17 @@ const App = () => {
             </div>
             <div class="side">Test</div>
             <div id="dashboardMap">
-                <Map geometryData={geometryData} healthData={healthData} onClick={onMapCountyClick}></Map>
+                <Map
+                    geometryData={geometryData}
+                    healthData={healthData}
+                    onClick={onMapCountyClick}
+                ></Map>
             </div>
-            <RightSideBar data={selectedCounty}></RightSideBar>
+            {selectedCounty ? (
+                <CountyOverview data={selectedCounty}></CountyOverview>
+            ) : (
+                <USOverview data={overviewUS}></USOverview>
+            )}
         </view>
     );
 };

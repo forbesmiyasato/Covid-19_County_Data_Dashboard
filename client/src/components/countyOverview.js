@@ -1,7 +1,7 @@
 import React from "react";
-import "../RightSideBar.css";
+import "../countyOverview.css";
 
-const RightSideBar = (props) => {
+const countyOverview = (props) => {
     console.log(props.data);
     return (
         <div class="side">
@@ -51,4 +51,4 @@ const RightSideBar = (props) => {
     );
 };
 
-export default RightSideBar;
+export default countyOverview;

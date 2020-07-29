@@ -15,9 +15,7 @@ const Map = (props) => {
         }
         else return '#000'
     }
-
-    console.log(props.geometryData);
-
+    
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
@@ -25,7 +23,6 @@ const Map = (props) => {
             onReady={(mapProps, map) => (mapRef = map)}
         >
             {props.geometryData && props.geometryData.map((county, i) => {
-                console.log(county);
                 return (
                     <Polygon
                         key={i}
