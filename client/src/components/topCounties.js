@@ -7,6 +7,7 @@ const topCounties = () => {
             <div id="topSelector">
                <input type="button" value="Deaths"></input>
                <input type="button" value="Cases"></input>
+               <input type="button" value="Recovered"></input>
                <input type="button" value="Mortality"></input>
             </div>
             <div class="countyHolder">1</div>
