@@ -39,6 +39,7 @@ const App = () => {
     }, []);
 
     console.log(overviewUS);
+    console.log(healthData);
 
     const onMapCountyClick = (name, state) => {
         const found = healthData.find(
@@ -64,7 +65,7 @@ const App = () => {
                     healthData={healthData}
                     onClick={onMapCountyClick}
                 ></Map>
-                <TopCounties></TopCounties>
+                <TopCounties data={healthData}></TopCounties>
             </div>
             {selectedCounty ? (
                 <CountyOverview data={selectedCounty}></CountyOverview>
