@@ -4,6 +4,7 @@ import "../App.css";
 import CountyOverview from "./countyOverview";
 import TopCounties from "./topCounties";
 import USOverview from "./usOverview";
+import CountyList from './countyList';
 import axios from "axios";
 
 const App = () => {
@@ -38,7 +39,7 @@ const App = () => {
         ]);
     }, []);
 
-    console.log(overviewUS);
+    console.log(healthData);
 
     const onMapCountyClick = (name, state) => {
         const found = healthData.find(
@@ -57,7 +58,7 @@ const App = () => {
             <div id="headerContainer">
                 <h1 id="dashboardName">Coronavirus US County Tracker</h1>
             </div>
-            <div class="side">Test</div>
+            <CountyList data={healthData}></CountyList>
             <div id="dashboardMap">
                 <Map
                     geometryData={geometryData}
