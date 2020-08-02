@@ -43,7 +43,8 @@ view {
   flex-direction: horizontal;
   justify-content: center;
   align-content: flex-start;
-  background-color: rgba(181, 209, 255, 0.34);
+  /* background: linear-gradient(to right, #0077B6, #0096C7); */
+  background-color:   #D48166;
 }
 
 
@@ -74,8 +75,8 @@ view {
   width: 24%;
   min-height: 300px;
   height: 600px;
-  background: rgba(181, 209, 255);
-  box-shadow: 1px 1px 4px rgba(0,0,0,.15)
+  background: #373A36;
+  box-shadow: 1px 1px 4px rgba(0,0,0)
 }
 
 

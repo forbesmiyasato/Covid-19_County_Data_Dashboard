@@ -12,20 +12,26 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return "#4A6890";
-            else if (found["new"] > 0) return "#99CCFF";
-            else if (found["new"] === 0) return "#EEFFFF";
+            if (found["new"] > 100) return "#f95372";
+            else if (found["new"] > 0) return "#e7ba08";
+            else if (found["new"] === 0) return "#e1a794";
         } else return "#fff";
     };
 
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
-                styles: mapStyles
+                styles: mapStyles,
+                streetViewControl: false,
+                mapTypeControl: false
             }}
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
             defaultZoom={4}
             onReady={(mapProps, map) => (mapRef = map)}
+            restriction={{
+                latLngBounds: USA_BOUNDs,
+                strictBounds: false
+            }}
         >
             {props.geometryData &&
                 props.geometryData.map((county, i) => {
@@ -66,6 +72,13 @@ const Map = (props) => {
             />
         </div>
     );
+};
+
+const USA_BOUNDs = {
+    east: -58.715582,
+    north: 49.938475,
+    south: 20.284843,
+    west: -137.908919,
 };
 
 const mapStyles = [
@@ -256,7 +269,7 @@ const mapStyles = [
         elementType: "geometry",
         stylers: [
             {
-                color: "#B5D1FF",
+                color: "#373A36",
             },
         ],
     },
