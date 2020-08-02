@@ -1,4 +1,6 @@
-
+body {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
 
 .App {
   text-align: center;
@@ -14,8 +16,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-header {
   background-color: #282c34;
@@ -43,22 +43,26 @@ view {
   flex-direction: horizontal;
   justify-content: center;
   align-content: flex-start;
-  background-color: black;
+  /* background: linear-gradient(to right, #0077B6, #0096C7); */
+  background-color:   #D48166;
 }
 
 
 #headerContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   width: 100%;
-  height: 100px;
-  background-color: #1b019c;
+  height: 70px;
+  padding-left: 15px;
+  margin-bottom: 20px;
+  background-color: #282828;
 }
 
 #dashboardName {
-  font-size: 30px;
+  /* font-size: 30px; */
+  font-weight: bold;
   color: white;
 }
 
@@ -66,15 +70,13 @@ view {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  border: solid;
-  border-radius: 10px;
-  border-color: silver;
-  border-width: thin;
+  border-radius: 20px;
   margin: 8px;
   width: 24%;
   min-height: 300px;
-  height: auto;
-  background-color: #444040;
+  height: 600px;
+  background: #373A36;
+  box-shadow: 1px 1px 4px rgba(0,0,0)
 }
 
 
@@ -84,7 +86,6 @@ view {
   height: calc(100% - 110px);
   width: 48%;
   height: auto;
-  background-color: black;
 }
 
 
