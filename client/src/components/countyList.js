@@ -10,8 +10,8 @@ const CountyList = (props) => {
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
-        const result = data.filter(county => (county.county_name.toLowerCase().includes(string) 
-        || county.state_name.toLowerCase().includes(string)));
+        console.log(string);
+        const result = data.filter(county => (`${county.state_name} - ${county.county_name}`.toLowerCase().includes(string)));
         setFilteredData(result);
     };
 
@@ -29,17 +29,17 @@ const CountyList = (props) => {
             </div>
             <ul>
                 {filteredData ? 
-                filteredData.map((county) => {
+                filteredData.map((county, i) => {
                     return (
-                        <li>
+                        <li key={i} onClick={props.onClick.bind(this, county.county_name, county.state_name)}>
                             {county.state_name} - {county.county_name}
                         </li>
                     );
                 }) 
                 :
-                data.map((county) => {
+                data.map((county, i) => {
                     return (
-                        <li>
+                        <li key={i} onClick={props.onClick.bind(this, county.county_name, county.state_name)}>
                             {county.state_name} - {county.county_name}
                         </li>
                     );

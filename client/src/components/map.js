@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import axios from "axios";
+import '../map.css'
 
 const Map = (props) => {
     const mapRef = useRef(null);
@@ -66,9 +67,9 @@ const Map = (props) => {
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
-                    <div style={{ height: `500px`, width: "100%" }} />
+                    <div style={{ height: `500px`, width: "100%", borderRadius: "20px!important" }} />
                 }
-                mapElement={<div style={{ height: `100%` }} />}
+                mapElement={<div className="map" style={{ height: `100%` }} />}
             />
         </div>
     );
