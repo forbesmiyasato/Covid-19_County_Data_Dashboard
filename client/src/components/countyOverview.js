@@ -9,8 +9,8 @@ const countyOverview = (props) => {
             <div class="container county-overview">
                 <p>County Overview</p>
                 <div class="row">
-                    <div class="col button">Cases</div>
-                    <div class="col button">Deaths</div>
+                    <div class="col button" onClick={props.togglePopup.bind(this, 'Cases')}>Cases</div>
+                    <div class="col button" onClick={props.togglePopup.bind(this, 'Deaths')}>Deaths</div>
                 </div>
                 <p>
                     {data.county_name}, {data.state_name}
