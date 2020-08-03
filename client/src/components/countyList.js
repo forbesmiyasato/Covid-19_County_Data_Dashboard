@@ -10,7 +10,6 @@ const CountyList = (props) => {
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
-        console.log(string);
         const result = data.filter(county => (`${county.state_name} - ${county.county_name}`.toLowerCase().includes(string)));
         setFilteredData(result);
     };

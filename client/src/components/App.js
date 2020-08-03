@@ -48,7 +48,7 @@ const App = () => {
         ]);
     }, []);
 
-    console.log(healthData);
+    console.log(overviewUS);
 
     const onCountyClick = (name, state) => {
         const found = healthData.find(
