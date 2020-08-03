@@ -4,8 +4,9 @@ import "../App.css";
 import CountyOverview from "./countyOverview";
 import TopCounties from "./topCounties";
 import USOverview from "./usOverview";
-import CountyList from './countyList';
+import CountyList from "./countyList";
 import axios from "axios";
+import Popup from "./popup";
 
 const App = () => {
     const [healthData, setHealthData] = useState([]);
@@ -13,6 +14,9 @@ const App = () => {
     const [geometryData, setGeometryData] = useState([]);
     const [overviewUS, setOverviewUS] = useState({});
     const [countyCasesDeaths, setCountyCasesDeaths] = useState({});
+    const [showPopup, setShowPopup] = useState(false);
+    const [chartType, setChartType] = useState();
+
     useEffect(() => {
         async function fetchGeometryData() {
             const geoResult = await axios("http://localhost:5000/all?state=OR");
@@ -44,10 +48,14 @@ const App = () => {
             fetchGeometryData(),
             fetchHealthData(),
             fetchOverviewUS(),
-            fetchCountyCasesDeaths()
+            fetchCountyCasesDeaths(),
         ]);
     }, []);
 
+    const togglePopup = (type) => {
+        setShowPopup(!showPopup);
+        setChartType(type);
+    };
     console.log(overviewUS);
 
     const onCountyClick = (name, state) => {
@@ -76,10 +84,16 @@ const App = () => {
                 <TopCounties></TopCounties>
             </div>
             {selectedCounty ? (
-                <CountyOverview data={selectedCounty}></CountyOverview>
+                <CountyOverview
+                    data={selectedCounty}
+                    togglePopup={togglePopup}
+                ></CountyOverview>
             ) : (
                 <USOverview data={overviewUS}></USOverview>
             )}
+            {showPopup ? (
+                <Popup togglePopup={togglePopup} chartType={chartType} />
+            ) : null}
         </view>
     );
 };
