@@ -1,0 +1,102 @@
+.side ul {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 92%;
+    list-style: none;
+    padding: 0;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+}
+
+ul > li {
+    /* width: 90%; */
+    padding: 0 10px;
+    font-size: 1.2rem !important;
+    /* background-color: rgba(28, 76, 116, 0.5); */
+    color: white;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+}
+
+/* ul > li:nth-child(odd) {
+    background-color: #0077b6;
+} */
+
+ul > li:hover {
+    background-color: #777;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #e6e2dd;
+}
+
+.search-box {
+    /* position: absolute; */
+    background: #fff;
+    border-radius: 40rem;
+    width: 100%;
+    display: block;
+    height: 8%;
+}
+
+/*.search-box:hover > .search-txt {
+          width: 80%;
+          padding: 0 6px;
+      }*/
+.search-box:hover > .search-btn {
+    background: #D48166;
+    color: #fff;
+}
+
+.search-btn {
+    float: right;
+    height: 100%;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D48166;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    /* width: 13%; */
+    padding: 10px;
+}
+
+.search-btn > i {
+    /* font-size: 3rem; */
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: #777;
+    font-size: 1.2rem;
+    width: 85%;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-left: 5px;
+}

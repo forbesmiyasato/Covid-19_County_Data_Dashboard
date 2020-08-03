@@ -1,6 +1,5 @@
 .side * {
     box-sizing: border-box;
-    border: 1px solid lightgray;
     border-radius: 2%;
     font-family: sans-serif;
     font-size: 1.2em;
@@ -134,4 +133,32 @@
         grid-row-end: 6;
         order: 5;
     }
+}
+
+/* new */
+.button {
+    background-color: #E6E2DD;
+    text-align: center;
+    color: #373A36;
+}
+
+.button:hover {
+    background-color: #777;
+    cursor: pointer;
+}
+
+.button:first-of-type {
+    border-right: #000 1px solid;
+}
+.county-overview {
+    color: white;
+}
+
+.overview-data-container {
+    height: 100%;
+    font-size: 0.8rem;
+}
+
+.overview-data {
+    height: 25% !important;
 }
