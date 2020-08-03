@@ -2,8 +2,11 @@
 
 
 #topContainer {
-    height: 100px;
+    height: 30%;
     width: 98%;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
 
 #topSelector {
@@ -43,20 +46,23 @@ input[type=button]:active {
     background-color: #9c0e01;
 }
 
-.countyHolder {
-    height: calc(20% - 8px);
-    width: 100%;
-    border: 1px white solid;
-    border-left: none;
-    border-right: none;
-    color: white;
+#topContainer ul {
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
     padding: 5px;
+    list-style: none;
+    width: 100%;
+}
+
+.deaths {
+    font-size: 1.6em;
+    padding: 0;
+    color: white;
+    border-bottom: 1px solid white;
 }
 
 .countyHolder:last-of-type {
     border-radius: 0px 0px 10px 10px;
 }
 
-p {
-    display: none;
-}

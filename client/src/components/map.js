@@ -62,12 +62,12 @@ const Map = (props) => {
     ));
 
     return (
-        <div class="container">
+        <div>
             <GoogleMapExample
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
-                    <div style={{ height: `500px`, width: "100%", borderRadius: "20px!important" }} />
+                    <div style={{ height: `55vh`, width: "100%", borderRadius: "20px!important" }} />
                 }
                 mapElement={<div className="map" style={{ height: `100%` }} />}
             />
