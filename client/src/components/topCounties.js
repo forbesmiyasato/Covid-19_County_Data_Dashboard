@@ -121,24 +121,36 @@ const topCounties = (props) => {
     console.log(greatest[1])
     
     return (
-        <div class="side" id="topContainer">
+        <div id="topContainer">
             <div id="topSelector">
                <input type="button" value="Deaths"></input>
                <input type="button" value="Cases"></input>
                <input type="button" value="Mortality"></input>
             </div>
-                <ul>
-                    { greatest[0].map((county, i) => {
-                        return (
-                            <li class="deaths" key={i} >
-                                {county.state_name} - {county.county_name}
-                            </li>
-                            
-                        )
-                    })
-                
-                }
+            <ul id="death-list">
+                { greatest[0].map((county, i) => {
+                    return (
+                        <li class="top-item" key={i} >
+                            {county.state_name} - {county.county_name}
+                        </li>
+                        
+                    )
+                })
+            
+            }
             </ul> 
+            <ul id="case-list">
+            { greatest[1].map((county, i) => {
+                    return (
+                        <li class="top-item" key={i} >
+                            {county.state_name} - {county.county_name}
+                        </li>
+                        
+                    )
+                })
+            
+            }
+            </ul>
         </div>
     );
 };

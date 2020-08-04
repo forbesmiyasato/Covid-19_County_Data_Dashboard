@@ -15,7 +15,8 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    height: 40px;
+    height: 20%;
+    min-height: 40px;
     border-radius: 10px 10px 0px 0px;
     background-color: #E6E2DD;
 }
@@ -26,8 +27,9 @@ input[type=button] {
     border-top: none;
     border-bottom: none; */
     border: none;
-    color: #D48166;
+    color: black;
     background-color: #E6E2DD;
+    font-size: 2em;
     height: 100%;
 }
 
@@ -46,21 +48,67 @@ input[type=button]:active {
     background-color: #9c0e01;
 }
 
-#topContainer ul {
+#topContainer {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 20px;
+    margin-right: 0%;
+    margin: 0.5%;
+    width: 100%;
+    height: 30vh;
+    min-height: 300px;
+    background: #373A36;
+    box-shadow: 1px 1px 4px rgba(0,0,0)
+    
+  }
+
+  @media screen and (max-width: 768px) {
+    #topContainer {
+        display: none;
+    }
+  }
+ 
+
+#death-list {
+    
+    display: none;
+    margin-bottom: 1rem;
+    height: 75%;
+    overflow: hidden;
     border-radius: 0px;
     margin: 0px;
     margin-bottom: 0px;
-    padding: 5px;
+    padding: 0px;
     list-style: none;
     width: 100%;
+    line-height: 1.5;
+    
 }
 
-.deaths {
-    font-size: 1.6em;
-    padding: 0;
+
+#case-list {
+    height: 75%;
+    overflow: hidden;
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    list-style: none;
+    width: 100%;
+    line-height: 1.5;
+    
+}
+
+.top-item {
+    font-size: 1.8em;
+    height: 20%;
+    padding: 0 10px;
     color: white;
     border-bottom: 1px solid white;
+    cursor: pointer;
 }
+
 
 .countyHolder:last-of-type {
     border-radius: 0px 0px 10px 10px;

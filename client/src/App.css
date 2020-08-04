@@ -82,6 +82,7 @@ view {
 
 
 
+
 #dashboardMap{
   margin: 1%;
   height: calc(100% - 110px);
@@ -122,11 +123,10 @@ view {
     font-size: 26px;
   }
 
-  
-
-  .side:nth-of-type(2){
+  #county-list{
     display: none;
   }
+
   
   .side:nth-of-type(4){
     margin-top: 10px;
