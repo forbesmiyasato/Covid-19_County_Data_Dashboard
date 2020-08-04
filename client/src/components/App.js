@@ -16,6 +16,7 @@ const App = () => {
     const [countyCasesDeaths, setCountyCasesDeaths] = useState({});
     const [showPopup, setShowPopup] = useState(false);
     const [chartType, setChartType] = useState();
+    const [selectedTimelineData, SetSelectedTimelineData] = useState();
 
     useEffect(() => {
         async function fetchGeometryData() {
@@ -68,6 +69,13 @@ const App = () => {
         if (found) {
             setSelectedCounty(found);
         }
+
+        const timelineData = countyCasesDeaths.data[state][name];
+        if (timelineData) {
+            SetSelectedTimelineData(timelineData);
+        }
+        // const found2 = (countyCasesDeaths.find(element => element == state));
+        // console.log(found2);
     };
 
     return (
@@ -93,7 +101,11 @@ const App = () => {
                 <USOverview data={overviewUS}></USOverview>
             )}
             {showPopup ? (
-                <Popup togglePopup={togglePopup} chartType={chartType} />
+                <Popup
+                    togglePopup={togglePopup}
+                    chartType={chartType}
+                    timelineData={selectedTimelineData}
+                />
             ) : null}
         </view>
     );

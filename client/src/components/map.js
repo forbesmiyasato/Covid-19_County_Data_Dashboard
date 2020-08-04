@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import "../map.css";
 import CustomMapControl from "./customControl";
@@ -7,6 +7,7 @@ import PolygonWrapper from "./polygonWrapper";
 const Map = (props) => {
     const mapRef = useRef(null);
 
+    console.log("RERENDER!")
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(
             (element) =>
@@ -304,4 +305,10 @@ const mapStyles = [
     },
 ];
 
-export default Map;
+function areEqual(prevProps, nextProps) {
+    console.log(prevProps)
+    console.log(nextProps);
+    return nextProps.geometryData.length === prevProps.geometryData.length && nextProps.healthData.length == prevProps.healthData.length
+}
+
+export default React.memo(Map, areEqual);
