@@ -4,10 +4,13 @@ import "../countyList.css";
 const CountyList = (props) => {
     const [data, setData] = useState(props.data);
     const [filteredData, setFilteredData] = useState();
-
+    const [sortState, setSortState] = useState({byState: true, byCases: false, byDeaths: false, byFatality: false});
     useEffect(() => {
+        console.log("called");
         setData(props.data);
     });
+
+    console.log("County list render");
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
@@ -17,7 +20,31 @@ const CountyList = (props) => {
                 .includes(string)
         );
         console.log(string);
-        setFilteredData(result);
+
+        if (sortState.byState) {
+            setFilteredData(result);
+        } else if (sortState.byCases) {
+            setFilteredData(
+                result.sort((a, b) => {
+                    return b.confirmed - a.confirmed;
+                })
+            );
+        } else if (sortState.byDeaths) {
+            setFilteredData(
+                result.sort((a, b) => {
+                    return b.death - a.death;
+                })
+            );
+        } else if (sortState.byFatality) {
+            setFilteredData(
+                result.sort((a, b) => {
+                    return (
+                        parseFloat(b.fatality_rate) -
+                        parseFloat(a.fatality_rate)
+                    );
+                })
+            );
+        }
     };
 
     const sortByCases = () => {
@@ -34,6 +61,8 @@ const CountyList = (props) => {
                 }),
             ]);
         }
+
+        setSortState({byState: false, byCases: true, byDeaths: false, byFatality: false});
     };
 
     const sortByDeaths = () => {
@@ -50,6 +79,7 @@ const CountyList = (props) => {
                 }),
             ]);
         }
+        setSortState({byState: false, byCases: false, byDeaths: true, byFatality: false});
     };
 
     const sortByFatalityRate = () => {
@@ -72,11 +102,15 @@ const CountyList = (props) => {
                 }),
             ]);
         }
+
+        setSortState({byState: false, byCases: false, byDeaths: false, byFatality: true});
     };
 
     const sortByStates = () => {
-        console.log("invoked")
+        console.log("invoked");
         setFilteredData([...data]);
+
+        setSortState({byState: true, byCases: false, byDeaths: false, byFatality: false});
     };
 
     return (
