@@ -306,8 +306,6 @@ const mapStyles = [
 ];
 
 function areEqual(prevProps, nextProps) {
-    console.log(prevProps)
-    console.log(nextProps);
     return nextProps.geometryData.length === prevProps.geometryData.length && nextProps.healthData.length == prevProps.healthData.length
 }
 
