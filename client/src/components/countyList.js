@@ -16,26 +16,68 @@ const CountyList = (props) => {
                 .toLowerCase()
                 .includes(string)
         );
+        console.log(string);
         setFilteredData(result);
     };
 
     const sortByCases = () => {
-        setData([...data.sort((a, b) => {
-            return b.confirmed - a.confirmed;
-        })])
-    }
+        if (filteredData) {
+            setData([
+                ...filteredData.sort((a, b) => {
+                    return b.confirmed - a.confirmed;
+                }),
+            ]);
+        } else {
+            setData([
+                ...data.sort((a, b) => {
+                    return b.confirmed - a.confirmed;
+                }),
+            ]);
+        }
+    };
 
     const sortByDeaths = () => {
-        setData([...data.sort((a, b) => {
-            return b.death - a.death;
-        })])
-    }
+        if (filteredData) {
+            setData([
+                ...filteredData.sort((a, b) => {
+                    return b.death - a.death;
+                }),
+            ]);
+        } else {
+            setData([
+                ...data.sort((a, b) => {
+                    return b.death - a.death;
+                }),
+            ]);
+        }
+    };
 
     const sortByFatalityRate = () => {
-        setData([...data.sort((a, b) => {
-            return parseFloat(b.fatality_rate) - parseFloat(a.fatality_rate);
-        })])
-    }
+        if (filteredData) {
+            setData([
+                ...filteredData.sort((a, b) => {
+                    return (
+                        parseFloat(b.fatality_rate) -
+                        parseFloat(a.fatality_rate)
+                    );
+                }),
+            ]);
+        } else {
+            setData([
+                ...data.sort((a, b) => {
+                    return (
+                        parseFloat(b.fatality_rate) -
+                        parseFloat(a.fatality_rate)
+                    );
+                }),
+            ]);
+        }
+    };
+
+    const sortByStates = () => {
+        console.log("invoked")
+        setFilteredData([...data]);
+    };
 
     return (
         <div class="side" id="county-list">
@@ -56,6 +98,9 @@ const CountyList = (props) => {
                     <i className="icon-basic-magnifier"></i>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" onClick={sortByStates}>
+                        Sort by states (default)
+                    </a>
                     <a class="dropdown-item" onClick={sortByCases}>
                         Sort by cases
                     </a>
