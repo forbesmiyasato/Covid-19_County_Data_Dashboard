@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
-import axios from "axios";
 import "../map.css";
+import CustomMapControl from "./customControl";
 
 const Map = (props) => {
     const mapRef = useRef(null);
@@ -19,6 +19,14 @@ const Map = (props) => {
         } else return "#fff";
     };
 
+    const onHover = (county, state) => {
+        const customControl = document.getElementsByClassName(
+            "card-text"
+        )[0];
+        customControl.innerHTML = `${county} - ${state}`;
+    };
+    const google = window.google;
+
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
@@ -34,6 +42,17 @@ const Map = (props) => {
                 strictBounds: false,
             }}
         >
+            <CustomMapControl position={google.maps.ControlPosition.TOP_RIGHT}>
+                <div
+                    class="card border-dark mb-3"
+                    style={{ maxWidth: "18rem" }}
+                >
+                    <div class="card-header">US Counties</div>
+                    <div class="card-body text-dark">
+                        <p class="card-text">Hover over county</p>
+                    </div>
+                </div>
+            </CustomMapControl>
             {props.geometryData &&
                 props.geometryData.map((county, i) => {
                     return (
@@ -51,6 +70,11 @@ const Map = (props) => {
                                 strokeWeight: 0.5,
                             }}
                             onClick={props.onClick.bind(
+                                this,
+                                county.county,
+                                county.state
+                            )}
+                            onMouseOver={onHover.bind(
                                 this,
                                 county.county,
                                 county.state
