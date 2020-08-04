@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/forbesmiyasato/FrontEndFinalProject#readme",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }
