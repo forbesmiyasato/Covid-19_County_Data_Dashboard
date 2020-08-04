@@ -1,11 +1,13 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect} from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
-import axios from "axios";
-import '../map.css'
+import "../map.css";
+import CustomMapControl from "./customControl";
+import PolygonWrapper from "./polygonWrapper";
 
 const Map = (props) => {
     const mapRef = useRef(null);
 
+    console.log("RERENDER!")
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(
             (element) =>
@@ -13,49 +15,48 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return "#f95372";
-            else if (found["new"] > 0) return "#e7ba08";
-            else if (found["new"] === 0) return "#e1a794";
+            if (found["new"] > 100) return "#BD0026";
+            else if (found["new"] > 0) return "#FC4E2A";
+            else if (found["new"] === 0) return "#D48166";
         } else return "#fff";
     };
 
+    const google = window.google;
+
+    console.log(google.maps)
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
                 styles: mapStyles,
                 streetViewControl: false,
-                mapTypeControl: false
+                mapTypeControl: false,
             }}
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
-            defaultZoom={4}
+            defaultZoom={4.3}
             onReady={(mapProps, map) => (mapRef = map)}
             restriction={{
                 latLngBounds: USA_BOUNDs,
-                strictBounds: false
+                strictBounds: false,
             }}
         >
+            <CustomMapControl position={google.maps.ControlPosition.TOP_RIGHT}>
+                <div class="card border-dark mb-3" style={{ width: "10rem" }}>
+                    <div class="card-header">US Counties</div>
+                    <div class="card-body text-dark">
+                        <p class="card-text">Hover over county</p>
+                    </div>
+                </div>
+            </CustomMapControl>
             {props.geometryData &&
                 props.geometryData.map((county, i) => {
                     return (
-                        <Polygon
-                            key={i}
-                            path={county.shape}
-                            options={{
-                                fillColor: getColor(
-                                    county.county,
-                                    county.state
-                                ),
-                                fillOpacity: 0.4,
-                                strokeColor: "#000",
-                                strokeOpacity: 0.4,
-                                strokeWeight: 0.5,
-                            }}
-                            onClick={props.onClick.bind(
-                                this,
-                                county.county,
-                                county.state
-                            )}
-                        />
+                        <PolygonWrapper
+                        shape={county.shape}
+                        color={getColor(county.county, county.state)}
+                        onClick={props.onClick}
+                        i={i}
+                        county={county.county}
+                        state={county.state}/>
                     );
                 })}
         </GoogleMap>
@@ -67,7 +68,13 @@ const Map = (props) => {
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
-                    <div style={{ height: `55vh`, width: "100%", borderRadius: "20px!important" }} />
+                    <div
+                        style={{
+                            height: `55vh`,
+                            width: "100%",
+                            borderRadius: "20px!important",
+                        }}
+                    />
                 }
                 mapElement={<div className="map" style={{ height: `100%` }} />}
             />
@@ -285,4 +292,8 @@ const mapStyles = [
     },
 ];
 
-export default Map;
+function areEqual(prevProps, nextProps) {
+    return nextProps.geometryData.length === prevProps.geometryData.length && nextProps.healthData.length == prevProps.healthData.length
+}
+
+export default React.memo(Map, areEqual);

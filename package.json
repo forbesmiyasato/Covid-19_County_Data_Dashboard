@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTON=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/forbesmiyasato/FrontEndFinalProject#readme",
   "dependencies": {
+    "chart.js": "^2.9.3",
     "cors": "^2.8.5",
     "express": "^4.17.1"
   }

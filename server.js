@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require('path');
 let fs = require("fs");
 
 const app = express();
@@ -56,11 +57,11 @@ function getCoordinates(data) {
     }
     return polishedCoordinates;
 }
-// //For heroku
-// app.use(express.static(path.resolve(__dirname, 'client/build')));
-// app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
-// });
+//For heroku
+app.use(express.static(path.resolve(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
