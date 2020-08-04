@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import "../map.css";
 import CustomMapControl from "./customControl";
+import PolygonWrapper from "./polygonWrapper";
 
 const Map = (props) => {
     const mapRef = useRef(null);
@@ -19,14 +20,21 @@ const Map = (props) => {
         } else return "#fff";
     };
 
-    const onHover = (county, state) => {
-        const customControl = document.getElementsByClassName(
-            "card-text"
-        )[0];
-        customControl.innerHTML = `${county} - ${state}`;
+    const onHover = (county, state, a) => {
+        const customControl = document.getElementsByClassName("card-text")[0];
+        // this.setOptions({
+        //     strokeColor: '#00ff00',
+        //     fillColor: '#00ff00'
+        // });
+
+        if (customControl) {
+            customControl.innerHTML = `${county} - ${state}`;
+        }
     };
+
     const google = window.google;
 
+    console.log(google.maps)
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
@@ -43,10 +51,7 @@ const Map = (props) => {
             }}
         >
             <CustomMapControl position={google.maps.ControlPosition.TOP_RIGHT}>
-                <div
-                    class="card border-dark mb-3"
-                    style={{ maxWidth: "18rem" }}
-                >
+                <div class="card border-dark mb-3" style={{ width: "10rem" }}>
                     <div class="card-header">US Counties</div>
                     <div class="card-body text-dark">
                         <p class="card-text">Hover over county</p>
@@ -56,30 +61,14 @@ const Map = (props) => {
             {props.geometryData &&
                 props.geometryData.map((county, i) => {
                     return (
-                        <Polygon
-                            key={i}
-                            path={county.shape}
-                            options={{
-                                fillColor: getColor(
-                                    county.county,
-                                    county.state
-                                ),
-                                fillOpacity: 0.4,
-                                strokeColor: "#000",
-                                strokeOpacity: 0.4,
-                                strokeWeight: 0.5,
-                            }}
-                            onClick={props.onClick.bind(
-                                this,
-                                county.county,
-                                county.state
-                            )}
-                            onMouseOver={onHover.bind(
-                                this,
-                                county.county,
-                                county.state
-                            )}
-                        />
+                        <PolygonWrapper
+                        shape={county.shape}
+                        color={getColor(county.county, county.state)}
+                        onClick={props.onClick}
+                        i={i}
+                        onHover={onHover}
+                        county={county.county}
+                        state={county.state}/>
                     );
                 })}
         </GoogleMap>
