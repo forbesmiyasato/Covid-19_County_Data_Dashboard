@@ -21,18 +21,6 @@ const Map = (props) => {
         } else return "#fff";
     };
 
-    const onHover = (county, state, a) => {
-        const customControl = document.getElementsByClassName("card-text")[0];
-        // this.setOptions({
-        //     strokeColor: '#00ff00',
-        //     fillColor: '#00ff00'
-        // });
-
-        if (customControl) {
-            customControl.innerHTML = `${county} - ${state}`;
-        }
-    };
-
     const google = window.google;
 
     console.log(google.maps)
@@ -67,7 +55,6 @@ const Map = (props) => {
                         color={getColor(county.county, county.state)}
                         onClick={props.onClick}
                         i={i}
-                        onHover={onHover}
                         county={county.county}
                         state={county.state}/>
                     );

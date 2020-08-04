@@ -4,8 +4,24 @@ import { Polygon } from "react-google-maps";
 const PolygonWrapper = (props) => {
     const [hovered, setHovered] = useState(null);
 
-    const onHovered = (i) => {
+    const customControl = document.getElementsByClassName("card-text")[0];
+
+    const onHover = (county, state, i) => {
+        if (customControl) {
+            customControl.innerHTML = `${county} - ${state}`;
+        }
+
         setHovered(i)
+
+        console.log("over");
+    };
+
+    const onLeave = () => {
+        if (customControl) {
+            customControl.innerHTML = "Hover over county";
+        }
+
+        setHovered(null);
     }
 
     return (
@@ -20,12 +36,11 @@ const PolygonWrapper = (props) => {
                 strokeWeight: hovered == props.i ? 2 : 0.5,
             }}
             onClick={props.onClick.bind(this, props.county, props.state)}
-            onMouseOver={() => {
-                props.onHover(props.county, props.state);
-                onHovered(props.i);
+            onMouseMove={() => {
+                onHover(props.county, props.state, props.i);
             }}
             onMouseOut={() => {
-                setHovered(null);
+                onLeave();
             }}
         />
     );
