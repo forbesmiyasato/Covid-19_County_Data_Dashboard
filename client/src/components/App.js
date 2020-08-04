@@ -20,7 +20,7 @@ const App = () => {
 
     useEffect(() => {
         async function fetchGeometryData() {
-            const geoResult = await axios("http://localhost:5000/all?state=OR");
+            const geoResult = await axios("/all?state=OR");
             setGeometryData(geoResult.data);
         }
 
