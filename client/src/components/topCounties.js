@@ -97,7 +97,6 @@ const findGreatest = (data, number) => {
     return allGreatest
 }
 
-
 const topCounties = (props) => {
     let data = props.data
     let greatest = findGreatest(data, 5)

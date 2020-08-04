@@ -13,9 +13,9 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return "#f95372";
-            else if (found["new"] > 0) return "#e7ba08";
-            else if (found["new"] === 0) return "#e1a794";
+            if (found["new"] > 100) return "#BD0026";
+            else if (found["new"] > 0) return "#FC4E2A";
+            else if (found["new"] === 0) return "#D48166";
         } else return "#fff";
     };
 
@@ -27,7 +27,7 @@ const Map = (props) => {
                 mapTypeControl: false
             }}
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
-            defaultZoom={4}
+            defaultZoom={4.3}
             onReady={(mapProps, map) => (mapRef = map)}
             restriction={{
                 latLngBounds: USA_BOUNDs,
@@ -67,7 +67,7 @@ const Map = (props) => {
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
-                    <div style={{ height: `500px`, width: "100%", borderRadius: "20px!important" }} />
+                    <div style={{ height: `80vh`, width: "100%", borderRadius: "20px!important" }} />
                 }
                 mapElement={<div className="map" style={{ height: `100%` }} />}
             />
