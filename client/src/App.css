@@ -71,7 +71,8 @@ view {
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 20px;
-  margin: 8px;
+  margin-right: 0%;
+  margin: 0.5%;
   width: 24%;
   min-height: 300px;
   height: 80vh;
@@ -82,28 +83,56 @@ view {
 
 
 #dashboardMap{
-  margin: 8px;
+  margin: 1%;
   height: calc(100% - 110px);
   width: 48%;
   height: auto;
 }
 
+.container {
+  width: 100% !important;
+}
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px){
+  #dashboardName {
+    font-size: 28px;
+  }
+
+  #county-list{
+    display: none;
+  }
+  
+  .side:nth-of-type(4){
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 40%;
+    height: 500px;
+  }
+  
+  #dashboardMap{
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 768px) {
 
   #dashboardName {
     font-size: 26px;
   }
 
-  .dataContainer:nth-of-type(1){
+  
+
+  .side:nth-of-type(2){
     display: none;
   }
   
-  .dataContainer:nth-of-type(2){
+  .side:nth-of-type(4){
     margin-top: 10px;
     margin-bottom: 10px;
     width: 90%;
-    height: 400px;
+    height: 500px;
   }
   
   #dashboardMap{

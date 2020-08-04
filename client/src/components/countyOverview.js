@@ -4,6 +4,9 @@ import "../countyOverview.css";
 const countyOverview = (props) => {
     console.log(props.data);
     const data = props.data;
+    const formatWithCommas = (valueIn) => {
+        return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return (
         <div class="side">
             <div class="container county-overview">
@@ -19,21 +22,21 @@ const countyOverview = (props) => {
                     <div class="row overview-data">
                         <div class="col">
                             Confirmed:
-                            <p>{data.confirmed}</p>
+                            <p>{formatWithCommas(data.confirmed)}</p>
                         </div>
                         <div class="col">
                             New:
-                            <p>{data.new}</p>
+                            <p>{formatWithCommas(data.new)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">
                         <div class="col">
-                            Death:
-                            <p>{data.death}</p>
+                            Deaths:
+                            <p>{formatWithCommas(data.death)}</p>
                         </div>
                         <div class="col">
-                            New Death:
-                            <p>{data.new_death}</p>
+                            New Deaths:
+                            <p>{formatWithCommas(data.new_death)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">

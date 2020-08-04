@@ -1,4 +1,4 @@
-.side ul {
+#county-list ul {
     overflow: hidden;
     overflow-y: scroll;
     height: 92%;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-ul > li {
+#county-list ul > li {
     /* width: 90%; */
     padding: 0 10px;
     font-size: 1.2rem !important;
@@ -23,7 +23,7 @@ ul > li {
     background-color: #0077b6;
 } */
 
-ul > li:hover {
+#county-list ul > li:hover {
     background-color: #777;
 }
 
@@ -83,9 +83,11 @@ ul > li:hover {
     padding: 10px;
 }
 
+/*
 .search-btn > i {
-    /* font-size: 3rem; */
+     font-size: 3rem; 
 }
+*/
 
 .search-txt {
     border: none;

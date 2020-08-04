@@ -15,7 +15,7 @@ const CountyList = (props) => {
     };
 
     return (
-        <div class="side">
+        <div class="side" id="county-list">
             <div className="search-box">
                 <input
                     className="search-txt"

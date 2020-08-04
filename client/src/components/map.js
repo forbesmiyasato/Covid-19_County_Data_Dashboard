@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import axios from "axios";
-import '../map.css'
+import "../map.css";
 
 const Map = (props) => {
     const mapRef = useRef(null);
@@ -24,14 +24,14 @@ const Map = (props) => {
             defaultOptions={{
                 styles: mapStyles,
                 streetViewControl: false,
-                mapTypeControl: false
+                mapTypeControl: false,
             }}
             defaultCenter={{ lat: 39.8097343, lng: -98.5556199 }}
             defaultZoom={4.3}
             onReady={(mapProps, map) => (mapRef = map)}
             restriction={{
                 latLngBounds: USA_BOUNDs,
-                strictBounds: false
+                strictBounds: false,
             }}
         >
             {props.geometryData &&
@@ -62,12 +62,18 @@ const Map = (props) => {
     ));
 
     return (
-        <div class="container">
+        <div>
             <GoogleMapExample
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={
-                    <div style={{ height: `80vh`, width: "100%", borderRadius: "20px!important" }} />
+                    <div
+                        style={{
+                            height: `55vh`,
+                            width: "100%",
+                            borderRadius: "20px!important",
+                        }}
+                    />
                 }
                 mapElement={<div className="map" style={{ height: `100%` }} />}
             />
