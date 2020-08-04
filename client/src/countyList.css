@@ -102,3 +102,8 @@
     margin-top: 10px;
     margin-left: 5px;
 }
+
+.dropdown-item {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
