@@ -6,7 +6,7 @@ const countyOverview = (props) => {
     let data = props.data;
     const formatWithCommas = (valueIn) => {
         if(!valueIn) 
-            return null;
+            return 0;
         else
             return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
