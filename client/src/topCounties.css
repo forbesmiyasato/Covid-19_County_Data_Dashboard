@@ -63,6 +63,12 @@ input[type=button]:active {
     
   }
 
+  @media screen and (max-width: 768px) {
+    #topContainer {
+        display: none;
+    }
+  }
+ 
 
 #death-list {
     
