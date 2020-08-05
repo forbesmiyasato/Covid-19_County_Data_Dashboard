@@ -97,16 +97,34 @@ const findGreatest = (data, number) => {
     return allGreatest
 }
 
-const compareByDeaths = (a, b) =>{
+const compareByDeaths = (a, b) => {
     return b.death - a.death
 }
 
-const compareByCases = (a, b) =>{
+const compareByCases = (a, b) => {
     return b.cases - a.cases
 }
 
-const compareByFatality = (a, b) =>{
-    return null
+const compareByFatality = (a, b) => {
+    return Number(b.fatality_rate.slice(1, b.fatality_rate.length - 1)) - Number(a.fatality_rate.slice(1, a.fatality_rate.length - 1))
+}
+
+const displayDeaths = () => {
+    document.getElementById('death-list').style.display = "block";
+    document.getElementById('fatality-list').style.display = "none";
+    document.getElementById('case-list').style.display = "none";
+}
+
+const displayCases = () => {
+    document.getElementById('case-list').style.display = "block";
+    document.getElementById('fatality-list').style.display = "none";
+    document.getElementById('death-list').style.display = "none";
+}
+
+const displayFatality = () => {
+    document.getElementById('fatality-list').style.display = "block";
+    document.getElementById('case-list').style.display = "none";
+    document.getElementById('death-list').style.display = "none";
 }
 
 const topCounties = (props) => {
@@ -116,16 +134,14 @@ const topCounties = (props) => {
 
     greatest[0].sort(compareByDeaths)
     greatest[1].sort(compareByCases)
-
-    console.log(greatest[0])
-    console.log(greatest[1])
+    greatest[2].sort(compareByFatality)
     
     return (
         <div id="topContainer">
             <div id="topSelector">
-               <input type="button" value="Deaths"></input>
-               <input type="button" value="Cases"></input>
-               <input type="button" value="Mortality"></input>
+               <input type="button" value="Deaths" onClick={displayDeaths}></input>
+               <input type="button" value="Cases" onClick={displayCases}></input>
+               <input type="button" value="Mortality" onClick={displayFatality}></input>
             </div>
             <ul id="death-list">
                 { greatest[0].map((county, i) => {
@@ -141,6 +157,18 @@ const topCounties = (props) => {
             </ul> 
             <ul id="case-list">
             { greatest[1].map((county, i) => {
+                    return (
+                        <li class="top-item" key={i}>
+                            {county.state_name} - {county.county_name}
+                        </li>
+                        
+                    )
+                })
+            
+            }
+            </ul>
+            <ul id="fatality-list">
+            { greatest[2].map((county, i) => {
                     return (
                         <li class="top-item" key={i} >
                             {county.state_name} - {county.county_name}

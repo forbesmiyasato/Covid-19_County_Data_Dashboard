@@ -73,7 +73,6 @@ input[type=button]:active {
 #death-list {
     
     display: none;
-    margin-bottom: 1rem;
     height: 75%;
     overflow: hidden;
     border-radius: 0px;
@@ -88,6 +87,21 @@ input[type=button]:active {
 
 
 #case-list {
+    display: none;
+    height: 75%;
+    overflow: hidden;
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    list-style: none;
+    width: 100%;
+    line-height: 1.5;
+    
+}
+
+#fatality-list {
+    display: none;
     height: 75%;
     overflow: hidden;
     border-radius: 0px;
@@ -107,6 +121,10 @@ input[type=button]:active {
     color: white;
     border-bottom: 1px solid white;
     cursor: pointer;
+}
+
+.top-item:hover {
+    background-color: #777;
 }
 
 
