@@ -1,5 +1,5 @@
 body {
-  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .App {
@@ -28,11 +28,9 @@ body {
   color: white;
 }
 
-
 .App-link {
   color: #61dafb;
 }
-
 
 view {
   height: auto;
@@ -44,9 +42,8 @@ view {
   justify-content: center;
   align-content: flex-start;
   /* background: linear-gradient(to right, #0077B6, #0096C7); */
-  background-color:   #D48166;
+  background-color: #d48166;
 }
-
 
 #headerContainer {
   display: flex;
@@ -76,14 +73,11 @@ view {
   width: 24%;
   min-height: 300px;
   height: 80vh;
-  background: #373A36;
-  box-shadow: 1px 1px 4px rgba(0,0,0)
+  background: #373a36;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0);
 }
 
-
-
-
-#dashboardMap{
+#dashboardMap {
   margin: 1%;
   height: calc(100% - 110px);
   width: 48%;
@@ -94,23 +88,23 @@ view {
   width: 100% !important;
 }
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
   #dashboardName {
     font-size: 28px;
   }
 
-  #county-list{
+  #county-list {
     display: none;
   }
-  
-  .side:nth-of-type(4){
+
+  .side:nth-of-type(4) {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 40%;
     height: 500px;
   }
-  
-  #dashboardMap{
+
+  #dashboardMap {
     width: 50%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -118,31 +112,27 @@ view {
 }
 
 @media screen and (max-width: 768px) {
-
   #dashboardName {
     font-size: 26px;
   }
 
-  #county-list{
+  #county-list {
     display: none;
   }
 
-  
-  .side:nth-of-type(4){
+  .side:nth-of-type(4) {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 90%;
     height: 500px;
   }
-  
-  #dashboardMap{
+
+  #dashboardMap {
     width: 90%;
     margin-top: 10px;
     margin-bottom: 10px;
   }
-  
 }
-
 
 @keyframes App-logo-spin {
   from {
@@ -152,4 +142,3 @@ view {
     transform: rotate(360deg);
   }
 }
-

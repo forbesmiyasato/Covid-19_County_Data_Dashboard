@@ -1,133 +1,122 @@
-
-
-
 #topContainer {
-    height: 30%;
-    width: 98%;
-    display: flex;
-    align-items: flex-start;
-    flex-wrap: wrap;
+  height: 30%;
+  width: 98%;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 #topSelector {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%;
-    height: 20%;
-    min-height: 40px;
-    border-radius: 10px 10px 0px 0px;
-    background-color: #E6E2DD;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 20%;
+  min-height: 40px;
+  border-radius: 10px 10px 0px 0px;
+  background-color: #e6e2dd;
 }
 
-input[type=button] {
-    /* border-left: 1px white solid;
+input[type="button"] {
+  /* border-left: 1px white solid;
     border-right: 1px white solid;
     border-top: none;
     border-bottom: none; */
-    border: none;
-    color: black;
-    background-color: #E6E2DD;
-    font-size: 2em;
-    height: 100%;
+  border: none;
+  color: black;
+  background-color: #e6e2dd;
+  font-size: 2em;
+  height: 100%;
 }
 
-input[type=button]:hover {
-    opacity: 0.7;
-    background-color: #9c0e01;
+input[type="button"]:hover {
+  opacity: 0.7;
+  background-color: #9c0e01;
 }
 
-input[type=button]:focus {
-    opacity: 1;
-    background-color: #9c0e01;
+input[type="button"]:focus {
+  opacity: 1;
+  background-color: #9c0e01;
 }
 
-input[type=button]:active {
-    opacity: 1;
-    background-color: #9c0e01;
+input[type="button"]:active {
+  opacity: 1;
+  background-color: #9c0e01;
 }
 
 #topContainer {
-    margin-bottom: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    border-radius: 20px;
-    margin-right: 0%;
-    margin: 0.5%;
-    width: 100%;
-    height: 30vh;
-    min-height: 300px;
-    background: #373A36;
-    box-shadow: 1px 1px 4px rgba(0,0,0)
-    
-  }
-
-  @media screen and (max-width: 768px) {
-    #topContainer {
-        display: none;
-    }
-  }
- 
-
-#death-list {
-    
-    display: none;
-    height: 75%;
-    overflow: hidden;
-    border-radius: 0px;
-    margin: 0px;
-    margin-bottom: 0px;
-    padding: 0px;
-    list-style: none;
-    width: 100%;
-    line-height: 1.5;
-    
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 20px;
+  margin-right: 0%;
+  margin: 0.5%;
+  width: 100%;
+  height: 30vh;
+  min-height: 300px;
+  background: #373a36;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0);
 }
 
+@media screen and (max-width: 768px) {
+  #topContainer {
+    display: none;
+  }
+}
+
+#death-list {
+  display: none;
+  height: 75%;
+  overflow: hidden;
+  border-radius: 0px;
+  margin: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  list-style: none;
+  width: 100%;
+  line-height: 1.5;
+}
 
 #case-list {
-    display: none;
-    height: 75%;
-    overflow: hidden;
-    border-radius: 0px;
-    margin: 0px;
-    margin-bottom: 0px;
-    padding: 0px;
-    list-style: none;
-    width: 100%;
-    line-height: 1.5;
-    
+  display: none;
+  height: 75%;
+  overflow: hidden;
+  border-radius: 0px;
+  margin: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  list-style: none;
+  width: 100%;
+  line-height: 1.5;
 }
 
 #fatality-list {
-    display: none;
-    height: 75%;
-    overflow: hidden;
-    border-radius: 0px;
-    margin: 0px;
-    margin-bottom: 0px;
-    padding: 0px;
-    list-style: none;
-    width: 100%;
-    line-height: 1.5;
-    
+  display: none;
+  height: 75%;
+  overflow: hidden;
+  border-radius: 0px;
+  margin: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
+  list-style: none;
+  width: 100%;
+  line-height: 1.5;
 }
 
 .top-item {
-    font-size: 1.8em;
-    height: 20%;
-    padding: 0 10px;
-    color: white;
-    border-bottom: 1px solid white;
-    cursor: pointer;
+  font-size: 1.8em;
+  height: 20%;
+  padding: 0 10px;
+  color: white;
+  border-bottom: 1px solid white;
+  cursor: pointer;
 }
 
 .top-item:hover {
-    background-color: #777;
+  background-color: #777;
 }
 
-
 .countyHolder:last-of-type {
-    border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
 }
