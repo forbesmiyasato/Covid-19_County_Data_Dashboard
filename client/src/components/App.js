@@ -102,7 +102,7 @@ const App = () => {
                     healthData={healthData}
                     onClick={onCountyClick}
                 ></Map>
-                <TopCounties data={healthData}></TopCounties>
+                <TopCounties data={healthData} onClick={onCountyClick}></TopCounties>
             </div>
             {selectedCounty ? (
                 <CountyOverview
