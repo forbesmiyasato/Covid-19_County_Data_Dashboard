@@ -9,7 +9,10 @@ const findGreatest = (data, number) => {
     let greatestCases = new Array();
     let greatestFatality = new Array();
     let current = null;
+    //console.log(data.length)
+    //console.log(data)
     for(var i = 0; i < data.length; ++i){
+        
         //if county and state name are not the same, its just a county
         
             //first push up to the number specified
@@ -70,29 +73,40 @@ const findGreatest = (data, number) => {
                 greatestFatality.push(data[i])
             }
             else{
+                
                 //then start replacing when a greater is found
+                var i_fatality = parseFloat(data[i].fatality_rate)
                 for(var j = 0; j < number; ++j){
-                    if(data[i].fatality_rate > greatestFatality[j].fatality_rate){
+                    
+                    var j_fatailty = parseFloat(greatestFatality[j].fatality_rate)
+                    if(data[i].fatality_rate != "nan%" && data[i].fatality_rate != "inf%" && i_fatality > j_fatailty){
                         current = greatestFatality[j]
                         greatestFatality[j] = data[i]
                         //if we make a replacement we need to take out the smallest and not the current
                         //value from the list
+                        
                         for(var k = 0; k < number; ++k){
-                            if(current != null && greatestFatality[k].fatality_rate < current.fatality_rate){
-                                let temp = greatestFatality[k]
+                            var cur_fatality = parseFloat(current.fatality_rate)
+                            var k_fatality = parseFloat(greatestFatality[k].fatality_rate)
+                            if(current != null && k_fatality < cur_fatality){
+                                var temp = greatestFatality[k]
                                 greatestFatality[k] = current
                                 current = temp
                                 break
                             }
                         }
+                        
                         break
                     }
                     
+                    
                 }
+                
                 
             }
             
     }
+    console.log(greatestFatality)
     let allGreatest = new Array(greatestDeaths, greatestCases, greatestFatality)
     return allGreatest
 }
@@ -106,7 +120,7 @@ const compareByCases = (a, b) => {
 }
 
 const compareByFatality = (a, b) => {
-    return Number(b.fatality_rate.slice(1, b.fatality_rate.length - 1)) - Number(a.fatality_rate.slice(1, a.fatality_rate.length - 1))
+    return parseFloat(b.fatality_rate.slice(0, b.fatality_rate.length - 1)) - parseFloat(a.fatality_rate.slice(0, a.fatality_rate.length - 1))
 }
 
 const displayDeaths = () => {
@@ -130,7 +144,6 @@ const displayFatality = () => {
 const topCounties = (props) => {
     let data = props.data
     let greatest = findGreatest(data, 5)
-    console.log(greatest)
 
     greatest[0].sort(compareByDeaths)
     greatest[1].sort(compareByCases)
