@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../countyList.css";
+import menu from "../menu.png";
 
 const CountyList = (props) => {
     const [data, setData] = useState(props.data);
@@ -129,7 +130,7 @@ const CountyList = (props) => {
                     aria-haspopup="true"
                     aria-expanded="false"
                 >
-                    <i className="icon-basic-magnifier"></i>
+                    <img src={menu} className="icon-menu"></img>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" onClick={sortByStates}>

@@ -90,9 +90,9 @@ const findGreatest = (data, number) => {
                     
                 }
                 
-            }
-            
+            }       
     }
+    
     let allGreatest = new Array(greatestDeaths, greatestCases, greatestFatality)
     return allGreatest
 }
