@@ -9,8 +9,8 @@ const findGreatest = (data, number) => {
     let greatestCases = new Array();
     let greatestFatality = new Array();
     let current = null;
-    //console.log(data.length)
-    //console.log(data)
+    
+
     for(var i = 0; i < data.length; ++i){
         
         //if county and state name are not the same, its just a county
@@ -106,7 +106,7 @@ const findGreatest = (data, number) => {
             }
             
     }
-    console.log(greatestFatality)
+    
     let allGreatest = new Array(greatestDeaths, greatestCases, greatestFatality)
     return allGreatest
 }
