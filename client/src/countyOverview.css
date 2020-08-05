@@ -19,6 +19,15 @@
 
 }
 
+
+.pStyleRed {
+    color: '#DB0700'
+};
+
+.pStyleGreen {
+    color: '#1ADB4A'
+};
+
 .grid-item {
     padding: 10px;
     background-color: whitesmoke;
