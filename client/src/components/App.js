@@ -78,12 +78,24 @@ const App = () => {
         // console.log(found2);
     };
 
+    const onListItemHover = (county, state) => {
+        // console.log(this.refs[`${county}${state}`]);
+        console.log("hovered")
+    };
+
+    const onListItemLeave = (county, state) => {};
+
     return (
         <view>
             <div id="headerContainer">
                 <h1 id="dashboardName">Coronavirus US County Tracker</h1>
             </div>
-            <CountyList data={healthData} onClick={onCountyClick}></CountyList>
+            <CountyList
+                data={healthData}
+                onClick={onCountyClick}
+                onHover={onListItemHover}
+                onLeave={onListItemLeave}
+            ></CountyList>
             <div id="dashboardMap">
                 <Map
                     geometryData={geometryData}

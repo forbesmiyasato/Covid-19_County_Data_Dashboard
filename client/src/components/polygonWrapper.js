@@ -26,7 +26,9 @@ const PolygonWrapper = (props) => {
 
     return (
         <Polygon
+            ref={(ref) => {ref = `${props.county}${props.state}`}}
             key={props.i}
+            id={`${props.county}${props.state}`}
             path={props.shape}
             options={{
                 fillColor: props.color,

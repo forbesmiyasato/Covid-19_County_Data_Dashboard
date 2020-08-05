@@ -157,6 +157,8 @@ const CountyList = (props) => {
                                       county.county_name,
                                       county.state_name
                                   )}
+                                  onMouseEnter={props.onHover.bind(this, county.county_name, county.state_name)}
+                                  onMouseLeave={props.onLeave.bind(this, county.county_name, county.state_name)}
                               >
                                   {county.state_name} - {county.county_name}
                               </li>
@@ -171,6 +173,8 @@ const CountyList = (props) => {
                                       county.county_name,
                                       county.state_name
                                   )}
+                                  onMouseEnter={props.onHover.bind(this, county.county_name, county.state_name)}
+                                  onMouseLeave={props.onLeave.bind(this, county.county_name, county.state_name)}
                               >
                                   {county.state_name} - {county.county_name}
                               </li>
