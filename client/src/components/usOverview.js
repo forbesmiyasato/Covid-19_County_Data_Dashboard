@@ -1,6 +1,13 @@
 import React from "react";
 
 
+var pStyleRed = {
+    color: '#DB0700'
+};
+
+var pStyleGreen = {
+    color: '#1ADB4A'
+};
 
 const countyOverview = (props) => {
     let data = props.data;
@@ -37,12 +44,12 @@ const countyOverview = (props) => {
                     </div>
                     <div class="row overview-data">
                         <div class="col">
-                            Today Cases:
-                            <p>{formatWithCommas(data.todayCases)}</p>
+                            Today's Cases:
+                            <p style={pStyleGreen}>{formatWithCommas(data.todayCases)}</p>
                         </div>
                         <div class="col">
-                            Today Deaths:
-                            <p>{formatWithCommas(data.todayDeaths)}</p>
+                            Today's Deaths:
+                            <p style={pStyleRed}>{formatWithCommas(data.todayDeaths)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">

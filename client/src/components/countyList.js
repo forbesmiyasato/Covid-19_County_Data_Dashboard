@@ -5,13 +5,11 @@ import menu from "../menu.png";
 const CountyList = (props) => {
     const [data, setData] = useState(props.data);
     const [filteredData, setFilteredData] = useState();
-    const [sortState, setSortState] = useState({byState: true, byCases: false, byDeaths: false, byFatality: false});
+    const [sortState, setSortState] = useState({byState: false, byCases: false, byDeaths: false, byFatality: false});
     useEffect(() => {
-        console.log("called");
         setData(props.data);
     });
 
-    console.log("County list render");
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
@@ -20,11 +18,12 @@ const CountyList = (props) => {
                 .toLowerCase()
                 .includes(string)
         );
-        console.log(string);
+        console.log("change handled")
 
         if (sortState.byState) {
             setFilteredData(result);
         } else if (sortState.byCases) {
+            console.log(result)
             setFilteredData(
                 result.sort((a, b) => {
                     return b.confirmed - a.confirmed;
@@ -46,9 +45,13 @@ const CountyList = (props) => {
                 })
             );
         }
+        else {
+            console.log("change not properly handled in sort")
+        }
     };
 
     const sortByCases = () => {
+        setSortState({byState: false, byCases: true, byDeaths: false, byFatality: false});
         if (filteredData) {
             setData([
                 ...filteredData.sort((a, b) => {
@@ -63,10 +66,12 @@ const CountyList = (props) => {
             ]);
         }
 
-        setSortState({byState: false, byCases: true, byDeaths: false, byFatality: false});
+        
     };
 
     const sortByDeaths = () => {
+        console.log("called")
+        setSortState({byState: false, byCases: false, byDeaths: true, byFatality: false});
         if (filteredData) {
             setData([
                 ...filteredData.sort((a, b) => {
@@ -80,10 +85,11 @@ const CountyList = (props) => {
                 }),
             ]);
         }
-        setSortState({byState: false, byCases: false, byDeaths: true, byFatality: false});
+        
     };
 
     const sortByFatalityRate = () => {
+        setSortState({byState: false, byCases: false, byDeaths: false, byFatality: true});
         if (filteredData) {
             setData([
                 ...filteredData.sort((a, b) => {
@@ -104,14 +110,15 @@ const CountyList = (props) => {
             ]);
         }
 
-        setSortState({byState: false, byCases: false, byDeaths: false, byFatality: true});
+        
     };
 
     const sortByStates = () => {
+        setSortState({byState: true, byCases: false, byDeaths: false, byFatality: false});
         console.log("invoked");
         setFilteredData([...data]);
 
-        setSortState({byState: true, byCases: false, byDeaths: false, byFatality: false});
+        
     };
 
     return (
