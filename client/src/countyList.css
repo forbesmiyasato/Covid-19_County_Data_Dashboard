@@ -70,7 +70,7 @@
 .search-btn {
     float: right;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 60%;
     background: #fff;
     display: flex;
     justify-content: center;
@@ -109,6 +109,6 @@
 }
 
 .icon-menu {
-    width: 20px;
+    width: 22px;
     height: 20px;
 }

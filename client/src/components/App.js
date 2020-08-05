@@ -88,7 +88,7 @@ const App = () => {
     return (
         <view>
             <div id="headerContainer">
-                <h1 id="dashboardName">Coronavirus US County Tracker</h1>
+                <h1 id="dashboardName">Coronavirus US County Tracker </h1>
             </div>
             <CountyList
                 data={healthData}
