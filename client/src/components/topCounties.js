@@ -146,7 +146,7 @@ const topCounties = (props) => {
             <ul id="death-list">
                 { greatest[0].map((county, i) => {
                     return (
-                        <li class="top-item" key={i} >
+                        <li class="top-item" key={i} onClick={props.onClick.bind(this, county.county_name, county.state_name)}>
                             {county.state_name} - {county.county_name}
                         </li>
                         
@@ -158,7 +158,7 @@ const topCounties = (props) => {
             <ul id="case-list">
             { greatest[1].map((county, i) => {
                     return (
-                        <li class="top-item" key={i}>
+                        <li class="top-item" key={i} onClick={props.onClick.bind(this, county.county_name, county.state_name)}>
                             {county.state_name} - {county.county_name}
                         </li>
                         
@@ -170,7 +170,7 @@ const topCounties = (props) => {
             <ul id="fatality-list">
             { greatest[2].map((county, i) => {
                     return (
-                        <li class="top-item" key={i} >
+                        <li class="top-item" key={i} onClick={props.onClick.bind(this, county.county_name, county.state_name)}>
                             {county.state_name} - {county.county_name}
                         </li>
                         
