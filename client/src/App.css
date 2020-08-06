@@ -45,23 +45,7 @@ view {
   background-color: #d48166;
 }
 
-#headerContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: center;
-  width: 100%;
-  height: 70px;
-  padding-left: 15px;
-  margin-bottom: 20px;
-  background-color: #282828;
-}
 
-#dashboardName {
-  /* font-size: 30px; */
-  font-weight: bold;
-  color: white;
-}
 
 .side {
   display: flex;
@@ -113,7 +97,7 @@ view {
 
 @media screen and (max-width: 768px) {
   #dashboardName {
-    font-size: 26px;
+    font-size: 20px;
   }
 
   #county-list {
