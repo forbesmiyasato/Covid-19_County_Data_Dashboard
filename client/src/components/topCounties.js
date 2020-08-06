@@ -94,7 +94,6 @@ const findGreatest = (data, number) => {
               current = temp;
               break;
             }
-
           }
 
           break;
