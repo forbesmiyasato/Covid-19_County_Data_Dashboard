@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect} from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import "../map.css";
 import CustomMapControl from "./customControl";
@@ -7,7 +7,7 @@ import PolygonWrapper from "./polygonWrapper";
 const Map = (props) => {
     const mapRef = useRef(null);
 
-    console.log("RERENDER!")
+    console.log("RERENDER!");
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(
             (element) =>
@@ -23,7 +23,7 @@ const Map = (props) => {
 
     const google = window.google;
 
-    console.log(google.maps)
+    console.log(google.maps);
     const GoogleMapExample = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
@@ -47,16 +47,41 @@ const Map = (props) => {
                     </div>
                 </div>
             </CustomMapControl>
+            <CustomMapControl
+                position={google.maps.ControlPosition.BOTTOM_LEFT}
+            >
+                <div
+                    class="card border-dark mb-3"
+                    id="map-legends"
+                    style={{ width: "10rem" }}
+                >
+                    <div class="card-body text-dark card-legends">
+                        <svg className="color-block">
+                            <rect className="color-block severity-1"/>
+                        </svg>
+                        {'= 0'}
+                        <svg className="color-block">
+                            <rect className="color-block severity-2"/>
+                        </svg>
+                        {'0 - 100'}
+                        <svg className="color-block">
+                            <rect className="color-block severity-3"/>
+                        </svg>
+                        {'> 100'}
+                    </div>
+                </div>
+            </CustomMapControl>
             {props.geometryData &&
                 props.geometryData.map((county, i) => {
                     return (
                         <PolygonWrapper
-                        shape={county.shape}
-                        color={getColor(county.county, county.state)}
-                        onClick={props.onClick}
-                        i={i}
-                        county={county.county}
-                        state={county.state}/>
+                            shape={county.shape}
+                            color={getColor(county.county, county.state)}
+                            onClick={props.onClick}
+                            i={i}
+                            county={county.county}
+                            state={county.state}
+                        />
                     );
                 })}
         </GoogleMap>
@@ -293,7 +318,10 @@ const mapStyles = [
 ];
 
 function areEqual(prevProps, nextProps) {
-    return nextProps.geometryData.length === prevProps.geometryData.length && nextProps.healthData.length == prevProps.healthData.length
+    return (
+        nextProps.geometryData.length === prevProps.geometryData.length &&
+        nextProps.healthData.length == prevProps.healthData.length
+    );
 }
 
 export default React.memo(Map, areEqual);

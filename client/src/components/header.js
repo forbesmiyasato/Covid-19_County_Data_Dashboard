@@ -30,6 +30,7 @@ const Header = (props) => {
           placeholder="Search counties"
           onChange={mobileSearch}
         ></input>
+        <i class="fa fa-search" aria-hidden="true"></i>
         <ul id="mobile-searched">
           {results.map((county, i) => {
             return (

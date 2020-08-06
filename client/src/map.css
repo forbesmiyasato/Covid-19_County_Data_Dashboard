@@ -1,3 +1,34 @@
 .map {
     border-radius: 20px;
 }
+
+#map-legends {
+    margin-bottom: 0 !important;
+}
+
+.color-block {
+    width: 20px;
+    height: 20px;
+}
+
+.severity-1 {
+    fill: #D48166;
+    stroke-width: 3;
+    stroke: #fff;
+}
+
+.severity-2 {
+    fill: #FC4E2A;
+    stroke-width: 3;
+    stroke: #fff;
+}
+
+.severity-3 {
+    fill: #BD0026;
+    stroke-width: 3;
+    stroke: #fff;
+}
+
+.card-legends {
+    padding: 0.5rem;
+}
