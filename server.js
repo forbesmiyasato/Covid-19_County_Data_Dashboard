@@ -48,12 +48,6 @@ function getCoordinates(data) {
         coords.lat = parseFloat(coord[1]);
         coords.lng = parseFloat(coord[0]);
         polishedCoordinates.push(coords);
-        // if (coords.lat == null || coords.lat == NaN || coords.lat == undefined) {
-        //     console.log(coords.lat)
-        // }
-        // if (coords.lng == null || coords.lng == NaN || coords.lng == undefined) {
-        //     console.log(coords.lng)
-        // }
     }
     return polishedCoordinates;
 }
