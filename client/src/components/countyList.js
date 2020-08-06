@@ -11,10 +11,12 @@ const CountyList = (props) => {
         byDeaths: false,
         byFatality: false,
     });
+
     useEffect(() => {
         setOriginalData(props.data);
-        setModifiedData([...originalData]);
-    });
+        setModifiedData([...props.data]);
+        console.log("COUNTY LIST");
+    }, [props]);
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
@@ -61,7 +63,7 @@ const CountyList = (props) => {
             byDeaths: false,
             byFatality: false,
         });
-        setOriginalData([
+        setModifiedData([
             ...modifiedData.sort((a, b) => {
                 return b.confirmed - a.confirmed;
             }),
@@ -76,7 +78,7 @@ const CountyList = (props) => {
             byDeaths: true,
             byFatality: false,
         });
-        setOriginalData([
+        setModifiedData([
             ...modifiedData.sort((a, b) => {
                 return b.death - a.death;
             }),
@@ -90,7 +92,7 @@ const CountyList = (props) => {
             byDeaths: false,
             byFatality: true,
         });
-        setOriginalData([
+        setModifiedData([
             ...modifiedData.sort((a, b) => {
                 return (
                     parseFloat(b.fatality_rate) - parseFloat(a.fatality_rate)
@@ -99,6 +101,8 @@ const CountyList = (props) => {
         ]);
     };
 
+    console.log(modifiedData)
+    console.log(originalData)
     const sortByStates = () => {
         setSortState({
             byState: true,
