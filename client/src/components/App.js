@@ -85,48 +85,9 @@ const App = () => {
 
   const onListItemLeave = (county, state) => {};
 
-<<<<<<< HEAD
-  return (
-    <view>
-      <Header data={healthData} onClick={onCountyClick}></Header>
-      
-      <CountyList
-        data={healthData}
-        onClick={onCountyClick}
-        onHover={onListItemHover}
-        onLeave={onListItemLeave}
-      ></CountyList>
-      <div id="dashboardMap">
-        <Map
-          geometryData={geometryData}
-          healthData={healthData}
-          onClick={onCountyClick}
-        ></Map>
-        <TopCounties data={healthData} onClick={onCountyClick}></TopCounties>
-      </div>
-      {selectedCounty ? (
-        <CountyOverview
-          data={selectedCounty}
-          togglePopup={togglePopup}
-        ></CountyOverview>
-      ) : (
-        <USOverview data={overviewUS}></USOverview>
-      )}
-      {showPopup ? (
-        <Popup
-          togglePopup={togglePopup}
-          chartType={chartType}
-          timelineData={selectedTimelineData}
-        />
-      ) : null}
-    </view>
-  );
-=======
     return (
         <view>
-            <div id="headerContainer">
-                <h1 id="dashboardName">Coronavirus US County Tracker </h1>
-            </div>
+            <Header data={healthData} onClick={onCountyClick}></Header>
             <CountyList
                 data={healthData}
                 onClick={onCountyClick}
@@ -158,7 +119,7 @@ const App = () => {
             ) : null}
         </view>
     );
->>>>>>> abc4ce36329ae71561854c9c62e58b6de81acd80
+
 };
 
 export default App;
