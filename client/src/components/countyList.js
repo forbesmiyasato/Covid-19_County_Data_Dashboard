@@ -3,8 +3,8 @@ import "../countyList.css";
 import menu from "../menu.png";
 
 const CountyList = (props) => {
-    const [data, setData] = useState(props.data);
-    const [filteredData, setFilteredData] = useState();
+    const [originalData, setOriginalData] = useState(props.data);
+    const [modifiedData, setModifiedData] = useState();
     const [sortState, setSortState] = useState({
         byState: false,
         byCases: false,
@@ -12,12 +12,13 @@ const CountyList = (props) => {
         byFatality: false,
     });
     useEffect(() => {
-        setData(props.data);
+        setOriginalData(props.data);
+        setModifiedData([...originalData]);
     });
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
-        const result = data.filter((county) =>
+        const result = originalData.filter((county) =>
             `${county.state_name} - ${county.county_name}`
                 .toLowerCase()
                 .includes(string)
@@ -25,22 +26,22 @@ const CountyList = (props) => {
         console.log("change handled");
 
         if (sortState.byState) {
-            setFilteredData(result);
+            setModifiedData(result);
         } else if (sortState.byCases) {
             console.log(result);
-            setFilteredData(
+            setModifiedData(
                 result.sort((a, b) => {
                     return b.confirmed - a.confirmed;
                 })
             );
         } else if (sortState.byDeaths) {
-            setFilteredData(
+            setModifiedData(
                 result.sort((a, b) => {
                     return b.death - a.death;
                 })
             );
         } else if (sortState.byFatality) {
-            setFilteredData(
+            setModifiedData(
                 result.sort((a, b) => {
                     return (
                         parseFloat(b.fatality_rate) -
@@ -60,19 +61,11 @@ const CountyList = (props) => {
             byDeaths: false,
             byFatality: false,
         });
-        if (filteredData) {
-            setData([
-                ...filteredData.sort((a, b) => {
-                    return b.confirmed - a.confirmed;
-                }),
-            ]);
-        } else {
-            setData([
-                ...data.sort((a, b) => {
-                    return b.confirmed - a.confirmed;
-                }),
-            ]);
-        }
+        setOriginalData([
+            ...modifiedData.sort((a, b) => {
+                return b.confirmed - a.confirmed;
+            }),
+        ]);
     };
 
     const sortByDeaths = () => {
@@ -83,19 +76,11 @@ const CountyList = (props) => {
             byDeaths: true,
             byFatality: false,
         });
-        if (filteredData) {
-            setData([
-                ...filteredData.sort((a, b) => {
-                    return b.death - a.death;
-                }),
-            ]);
-        } else {
-            setData([
-                ...data.sort((a, b) => {
-                    return b.death - a.death;
-                }),
-            ]);
-        }
+        setOriginalData([
+            ...modifiedData.sort((a, b) => {
+                return b.death - a.death;
+            }),
+        ]);
     };
 
     const sortByFatalityRate = () => {
@@ -105,25 +90,13 @@ const CountyList = (props) => {
             byDeaths: false,
             byFatality: true,
         });
-        if (filteredData) {
-            setData([
-                ...filteredData.sort((a, b) => {
-                    return (
-                        parseFloat(b.fatality_rate) -
-                        parseFloat(a.fatality_rate)
-                    );
-                }),
-            ]);
-        } else {
-            setData([
-                ...data.sort((a, b) => {
-                    return (
-                        parseFloat(b.fatality_rate) -
-                        parseFloat(a.fatality_rate)
-                    );
-                }),
-            ]);
-        }
+        setOriginalData([
+            ...modifiedData.sort((a, b) => {
+                return (
+                    parseFloat(b.fatality_rate) - parseFloat(a.fatality_rate)
+                );
+            }),
+        ]);
     };
 
     const sortByStates = () => {
@@ -134,7 +107,7 @@ const CountyList = (props) => {
             byFatality: false,
         });
         console.log("invoked");
-        setFilteredData([...data]);
+        setModifiedData([...originalData]);
     };
 
     return (
@@ -157,8 +130,7 @@ const CountyList = (props) => {
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" onClick={sortByStates}>
-                        Sort by states (default)                     <i class="fas fa-thumbs-up fa-5x"></i>
-
+                        Sort by states (default)
                     </a>
                     <a class="dropdown-item" onClick={sortByCases}>
                         Sort by cases
@@ -172,8 +144,8 @@ const CountyList = (props) => {
                 </div>
             </div>
             <ul>
-                {filteredData
-                    ? filteredData.map((county, i) => {
+                {modifiedData
+                    ? modifiedData.map((county, i) => {
                           return (
                               <li
                                   key={i}
@@ -197,30 +169,7 @@ const CountyList = (props) => {
                               </li>
                           );
                       })
-                    : data.map((county, i) => {
-                          return (
-                              <li
-                                  key={i}
-                                  onClick={props.onClick.bind(
-                                      this,
-                                      county.county_name,
-                                      county.state_name
-                                  )}
-                                  onMouseEnter={props.onHover.bind(
-                                      this,
-                                      county.county_name,
-                                      county.state_name
-                                  )}
-                                  onMouseLeave={props.onLeave.bind(
-                                      this,
-                                      county.county_name,
-                                      county.state_name
-                                  )}
-                              >
-                                  {county.state_name} - {county.county_name}
-                              </li>
-                          );
-                      })}
+                    : null}
             </ul>
         </div>
     );
