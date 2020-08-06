@@ -64,47 +64,36 @@ const findGreatest = (data, number) => {
       }
     }
 
-    if (
-      data[i].fatality_rate != "nan%" &&
-      data[i].fatality_rate != "inf%" &&
-      greatestFatality.length < number
-    ) {
-      greatestFatality.push(data[i]);
-    } else {
-      //then start replacing when a greater is found
-      var i_fatality = parseFloat(data[i].fatality_rate);
-      for (var j = 0; j < number; ++j) {
-        var j_fatailty = parseFloat(greatestFatality[j].fatality_rate);
-        if (
-          data[i].fatality_rate != "nan%" &&
-          data[i].fatality_rate != "inf%" &&
-          i_fatality > j_fatailty
-        ) {
-          current = greatestFatality[j];
-          greatestFatality[j] = data[i];
-          //if we make a replacement we need to take out the smallest and not the current
-          //value from the list
-
-          for (var k = 0; k < number; ++k) {
-            var cur_fatality = parseFloat(current.fatality_rate);
-            var k_fatality = parseFloat(greatestFatality[k].fatality_rate);
-            if (current != null && k_fatality < cur_fatality) {
-              var temp = greatestFatality[k];
-              greatestFatality[k] = current;
-              current = temp;
-              break;
+            if(data[i].fatality_rate != "nan%"  && data[i].fatality_rate != "inf%" && greatestFatality.length < number){
+                greatestFatality.push(data[i])
             }
-          }
-
-          break;
-        }
-      }
+            else{
+                //then start replacing when a greater is found
+                for(var j = 0; j < number; ++j){
+                    if(data[i].fatality_rate > greatestFatality[j].fatality_rate){
+                        current = greatestFatality[j]
+                        greatestFatality[j] = data[i]
+                        //if we make a replacement we need to take out the smallest and not the current
+                        //value from the list
+                        for(var k = 0; k < number; ++k){
+                            if(current != null && greatestFatality[k].fatality_rate < current.fatality_rate){
+                                let temp = greatestFatality[k]
+                                greatestFatality[k] = current
+                                current = temp
+                                break
+                            }
+                        }
+                        break
+                    }
+                    
+                }
+                
+            }       
     }
-  }
-
-  let allGreatest = new Array(greatestDeaths, greatestCases, greatestFatality);
-  return allGreatest;
-};
+    
+    let allGreatest = new Array(greatestDeaths, greatestCases, greatestFatality)
+    return allGreatest
+}
 
 const compareByDeaths = (a, b) => {
   return b.death - a.death;
