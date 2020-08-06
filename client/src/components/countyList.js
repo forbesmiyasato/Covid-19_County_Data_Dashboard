@@ -3,20 +3,21 @@ import "../countyList.css";
 import menu from "../menu.png";
 
 const CountyList = (props) => {
-    const [originalData, setOriginalData] = useState(props.data);
-    const [modifiedData, setModifiedData] = useState();
+    const [modifiedData, setModifiedData] = useState(props.data);
     const [sortState, setSortState] = useState({
-        byState: false,
+        byState: true,
         byCases: false,
         byDeaths: false,
         byFatality: false,
     });
 
+    const originalData = props.data;
+    
     useEffect(() => {
-        setOriginalData(props.data);
-        setModifiedData([...props.data]);
+        // setOriginalData(props.data);
+        setModifiedData([...originalData]);
         console.log("COUNTY LIST");
-    }, [props]);
+    }, [originalData]);
 
     const handleChange = (e) => {
         const string = e.target.value.toLowerCase();
@@ -101,8 +102,6 @@ const CountyList = (props) => {
         ]);
     };
 
-    console.log(modifiedData)
-    console.log(originalData)
     const sortByStates = () => {
         setSortState({
             byState: true,
