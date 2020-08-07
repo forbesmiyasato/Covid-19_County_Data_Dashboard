@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../countyList.css";
 import "../header.css";
+import AccessColors from "./colors.js"
 
 
 const hideSearch = () =>{
@@ -66,6 +67,7 @@ const Header = (props) => {
           })}
         </ul>
       </div>
+      <AccessColors></AccessColors>
     </div>
   );
 };
