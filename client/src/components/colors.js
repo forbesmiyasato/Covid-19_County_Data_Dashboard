@@ -1,10 +1,10 @@
-import React from "react"
+import React, {useState} from "react"
 import "../colors.css"
 import "../map.css"
 
-    var color1 = "#BD0026"
-    var color2 = "#FC4E2A"
-    var color3 = "#D48166"
+var color1 = "#BD0026"
+var color2 = "#FC4E2A"
+var color3 = "#D48166"
 
 const showOptions = () =>{
     if(document.getElementById("access-options").style.display == "none"){
@@ -18,7 +18,6 @@ const showOptions = () =>{
 const standard = () =>{
     let color1 = document.getElementsByClassName("severity-1")
     for(let i = 0; i < color1.length; ++i){
-        console.log(color1.length)
         color1[i].style.fill = "#D48166"
         setColor1("#D48166")
     }
@@ -74,7 +73,10 @@ const getColor3 = () =>{
 }
 
 
-const accessColors = () => {  
+const AccessColors = () => {
+    const [color, setColor] = useState({
+        standard1: "#D48166"
+    });
     return (
         <div class="accessibility-menu">
             <button class="drop" onClick={showOptions}>Colorblind Options <i id="down-arrow" class='fa fa-angle-down'></i></button>
@@ -93,7 +95,7 @@ const accessColors = () => {
     )
 }
 
-export default accessColors
+export default AccessColors
 export {
     getColor1,
     getColor2,
