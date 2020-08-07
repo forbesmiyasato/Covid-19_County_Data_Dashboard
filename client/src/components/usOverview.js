@@ -35,21 +35,21 @@ const countyOverview = (props) => {
                     <div class="row overview-data">
                         <div class="col">
                             Recovered:
-                            <p>{formatWithCommas(data.recovered)}</p>
+                            <p style={pStyleGreen}>{formatWithCommas(data.recovered)}</p>
                         </div>
                         <div class="col">
                             Deaths:
-                            <p>{formatWithCommas(data.deaths)}</p>
+                            <p style={pStyleRed}>{formatWithCommas(data.deaths)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">
                         <div class="col">
                             Today's Cases:
-                            <p style={pStyleGreen}>{formatWithCommas(data.todayCases)}</p>
+                            <p>{formatWithCommas(data.todayCases)}</p>
                         </div>
                         <div class="col">
                             Today's Deaths:
-                            <p style={pStyleRed}>{formatWithCommas(data.todayDeaths)}</p>
+                            <p>{formatWithCommas(data.todayDeaths)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">
