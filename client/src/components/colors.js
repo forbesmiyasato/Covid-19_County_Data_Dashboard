@@ -1,8 +1,6 @@
 import React from "react"
-import PolygonWrapper from "./polygonWrapper"
 import "../colors.css"
 import "../map.css"
-import Map from "./map.js"
 
     var color1 = "#BD0026"
     var color2 = "#FC4E2A"
