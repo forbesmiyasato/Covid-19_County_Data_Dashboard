@@ -46,11 +46,20 @@ const App = () => {
       setCountyCasesDeaths(casesDeathsResult);
     }
 
+    // async function fetchStateCasesDeaths() {
+    //   const stateDeathsResult = await axios(
+    //     "https://api.covidtracking.com/v1/states/ca/current.json"
+    //   );
+    //   setStateDeaths(statesDeathsResult);
+    // }
+
+
     Promise.all([
       fetchGeometryData(),
       fetchHealthData(),
       fetchOverviewUS(),
       fetchCountyCasesDeaths(),
+     // fetchStateCasesDeaths(),
     ]);
   }, []);
 

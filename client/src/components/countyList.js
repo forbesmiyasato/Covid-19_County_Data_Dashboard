@@ -12,7 +12,7 @@ const CountyList = (props) => {
     });
 
     const originalData = props.data;
-    
+
     useEffect(() => {
         // setOriginalData(props.data);
         setModifiedData([...originalData]);
@@ -114,7 +114,7 @@ const CountyList = (props) => {
     };
 
     return (
-        <div class="side" id="county-list">
+        <div className="side" id="county-list">
             <div className="search-box">
                 <input
                     className="search-txt"
@@ -129,19 +129,19 @@ const CountyList = (props) => {
                     aria-haspopup="true"
                     aria-expanded="false"
                 >
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" onClick={sortByStates}>
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a className="dropdown-item sort-by-states" onClick={sortByStates}>
                         Sort by states (default)
                     </a>
-                    <a class="dropdown-item" onClick={sortByCases}>
+                    <a className="dropdown-item sort-by-cases" onClick={sortByCases}>
                         Sort by cases
                     </a>
-                    <a class="dropdown-item" onClick={sortByDeaths}>
+                    <a className="dropdown-item sort-by-death" onClick={sortByDeaths}>
                         Sort by deaths
                     </a>
-                    <a class="dropdown-item" onClick={sortByFatalityRate}>
+                    <a className="dropdown-item sort-by-fatality" onClick={sortByFatalityRate}>
                         Sort by fatality rate
                     </a>
                 </div>
@@ -151,6 +151,7 @@ const CountyList = (props) => {
                     ? modifiedData.map((county, i) => {
                           return (
                               <li
+                              className="county-list-item"
                                   key={i}
                                   onClick={props.onClick.bind(
                                       this,

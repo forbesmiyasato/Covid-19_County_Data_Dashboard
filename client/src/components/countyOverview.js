@@ -5,12 +5,14 @@ var pStyleRed = {
     color: '#DB0700'
 };
 
+const formatWithCommas = (valueIn) => {
+    return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+
 const countyOverview = (props) => {
     console.log(props.data);
     const data = props.data;
-    const formatWithCommas = (valueIn) => {
-        return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
     return (
         <div class="side">
             <div class="container county-overview">
@@ -53,6 +55,10 @@ const countyOverview = (props) => {
                             <p>{data.last_update}</p>
                         </div>
                     </div>
+                <div class="row">
+                <div class="col button" onClick={props.togglePopup.bind(this, 'byState')}>Monthly Cases</div>
+                <div class="col button" onClick={props.togglePopup.bind(this, 'deaths')}>Monthly Deaths</div>
+                </div>
                 </div>
             </div>
         </div>

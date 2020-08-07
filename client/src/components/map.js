@@ -116,6 +116,7 @@ const USA_BOUNDs = {
     west: -137.908919,
 };
 
+//Sytles from https://mapstyle.withgoogle.com/
 const mapStyles = [
     {
         elementType: "geometry",
