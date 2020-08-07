@@ -1,0 +1,52 @@
+
+.accessibility-menu {
+    margin-right: 10px;
+    height: 50%;
+    width: auto;
+    margin-left: 10px;
+    border: none;
+}
+
+.drop {
+    background-color: transparent;
+    color: white;
+    border: none;
+    width: auto;
+    height: auto;
+    font-size: 1.6em;
+    margin: 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+.drop:focus {
+    outline: none;
+}
+
+#downarrow {
+    margin: 10px;
+}
+
+.access-item {
+  width: 100%;
+  color: white;
+  border-bottom: 1px solid white;
+  height: 30px;
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.access-item:hover {
+    background-color: #777;
+}
+
+#access-options {
+  display: none;
+  background-color: #282828;
+  list-style: none;
+  z-index: 1;
+  position: relative;
+  border: none;
+  padding: 1px;
+  cursor: pointer;
+}

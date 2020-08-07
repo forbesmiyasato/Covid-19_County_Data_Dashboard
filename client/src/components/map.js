@@ -3,10 +3,12 @@ import { withGoogleMap, GoogleMap, Polygon } from "react-google-maps";
 import "../map.css";
 import CustomMapControl from "./customControl";
 import PolygonWrapper from "./polygonWrapper";
+import {getColor1, getColor2, getColor3, colorCheck} from "./colors.js"
+
+
 
 const Map = (props) => {
     const mapRef = useRef(null);
-
     console.log("RERENDER!");
     const getColor = (countyName, stateName) => {
         const found = props.healthData.find(
@@ -15,9 +17,9 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return "#BD0026";
-            else if (found["new"] > 0) return "#FC4E2A";
-            else if (found["new"] === 0) return "#D48166";
+            if (found["new"] > 100) return getColor1();
+            else if (found["new"] > 0) return getColor2();
+            else if (found["new"] === 0) return getColor3();
         } else return "#fff";
     };
 
@@ -318,11 +320,13 @@ const mapStyles = [
     },
 ];
 
+
 function areEqual(prevProps, nextProps) {
     return (
-        nextProps.geometryData.length === prevProps.geometryData.length &&
+        nextProps.geometryData.length == prevProps.geometryData.length &&
         nextProps.healthData.length == prevProps.healthData.length
     );
 }
+
 
 export default React.memo(Map, areEqual);
