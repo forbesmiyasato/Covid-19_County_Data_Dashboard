@@ -17,6 +17,7 @@ const countyOverview = (props) => {
         else
             return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+    
     return (
         <div class="side" style={{ color: "#777" }}>
             <div class="container county-overview">

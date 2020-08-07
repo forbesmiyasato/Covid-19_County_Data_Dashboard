@@ -1,4 +1,3 @@
-/*
 import React, {useState, useEffect} from "react";
 import { Line } from "react-chartjs-2";
 
@@ -44,4 +43,3 @@ const LineChart = (props) => {
 };
 
 export default LineChart;
-*/
