@@ -55,6 +55,7 @@ view {
   width: 24%;
   min-height: 300px;
   height: 80vh;
+  min-height: 600px;
   background: #373a36;
   box-shadow: 1px 1px 4px rgba(0, 0, 0);
 }
