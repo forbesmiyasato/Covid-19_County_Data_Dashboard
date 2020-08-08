@@ -24,7 +24,7 @@ const Map = (props) => {
     const google = window.google;
 
     console.log(google.maps);
-    const GoogleMapExample = withGoogleMap((props) => (
+    const GoogleMapContainer = withGoogleMap((props) => (
         <GoogleMap
             defaultOptions={{
                 styles: mapStyles,
@@ -89,7 +89,7 @@ const Map = (props) => {
 
     return (
         <div>
-            <GoogleMapExample
+            <GoogleMapContainer
                 geometryData={props.geometryData}
                 onClick={props.onClick}
                 containerElement={

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../countyList.css";
-import menu from "../menu.png";
+import { getColor1 } from "./colors";
 
 const CountyList = (props) => {
     const [modifiedData, setModifiedData] = useState(props.data);
@@ -124,6 +124,7 @@ const CountyList = (props) => {
                 ></input>
                 <button
                     className="search-btn"
+                    style={{ color: getColor1() }}
                     id="sortDropdown"
                     data-toggle="dropdown"
                     aria-haspopup="true"
@@ -131,17 +132,32 @@ const CountyList = (props) => {
                 >
                     <i className="fas fa-bars"></i>
                 </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item sort-by-states" onClick={sortByStates}>
+                <div
+                    className="dropdown-menu"
+                    aria-labelledby="dropdownMenuButton"
+                >
+                    <a
+                        className="dropdown-item sort-by-states"
+                        onClick={sortByStates}
+                    >
                         Sort by states (default)
                     </a>
-                    <a className="dropdown-item sort-by-cases" onClick={sortByCases}>
+                    <a
+                        className="dropdown-item sort-by-cases"
+                        onClick={sortByCases}
+                    >
                         Sort by cases
                     </a>
-                    <a className="dropdown-item sort-by-death" onClick={sortByDeaths}>
+                    <a
+                        className="dropdown-item sort-by-death"
+                        onClick={sortByDeaths}
+                    >
                         Sort by deaths
                     </a>
-                    <a className="dropdown-item sort-by-fatality" onClick={sortByFatalityRate}>
+                    <a
+                        className="dropdown-item sort-by-fatality"
+                        onClick={sortByFatalityRate}
+                    >
                         Sort by fatality rate
                     </a>
                 </div>
@@ -151,7 +167,7 @@ const CountyList = (props) => {
                     ? modifiedData.map((county, i) => {
                           return (
                               <li
-                              className="county-list-item"
+                                  className="county-list-item"
                                   key={i}
                                   onClick={props.onClick.bind(
                                       this,

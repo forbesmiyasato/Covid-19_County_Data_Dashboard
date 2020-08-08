@@ -75,3 +75,36 @@
     display: none;
   }
 }
+
+@media (max-width: 414px) {
+  .mobile-searched-item {
+    height: auto;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 1023px) {
+  .search-txt {
+    font-family: Arial , fontAwesome;
+  }
+
+  .drop {
+    font-size: 1rem;
+  }
+}
+
+/* .search-btn-mobile {
+  float: right;
+  height: 100%;
+  width: 20%;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d48166;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  padding: 10px;
+} */

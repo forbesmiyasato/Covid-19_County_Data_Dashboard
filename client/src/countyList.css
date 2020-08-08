@@ -64,7 +64,7 @@
       }*/
 .search-box:hover > .search-btn {
     background: #D48166;
-    color: #fff;
+    color: #fff !important;
 }
 
 .search-btn {
@@ -75,7 +75,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #D48166;
+    /* color: #D48166; */
     cursor: pointer;
     text-decoration: none;
     border: none;
