@@ -78,7 +78,7 @@
 
 @media (max-width: 768px) {
   .mobile-searched-item {
-    height: auto;
+    height: auto !important;
     font-size: 0.8rem;
   }
 }

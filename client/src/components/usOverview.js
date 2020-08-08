@@ -1,5 +1,5 @@
 import React from "react";
-
+const formatWithCommas = require('./utilities');
 
 var pStyleRed = {
     color: '#DB0700'
@@ -11,49 +11,43 @@ var pStyleGreen = {
 
 const countyOverview = (props) => {
     let data = props.data;
-    const formatWithCommas = (valueIn) => {
-        if(!valueIn) 
-            return 0;
-        else
-            return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
     
     return (
-        <div class="side" style={{ color: "#777" }}>
-            <div class="container county-overview">
+        <div className="side" style={{ color: "#777" }}>
+            <div className="container county-overview">
                 <p>US Overview</p>
                 <div className="overview-data-container">
-                    <div class="row overview-data">
-                        <div class="col">
+                    <div className="row overview-data">
+                        <div className="col">
                             Active:
                             <p>{formatWithCommas(data.active)}</p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             Cases:
                             <p>{formatWithCommas(data.cases)}</p>
                         </div>
                     </div>
-                    <div class="row overview-data">
-                        <div class="col">
+                    <div className="row overview-data">
+                        <div className="col">
                             Recovered:
                             <p style={pStyleGreen}>{formatWithCommas(data.recovered)}</p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             Deaths:
                             <p style={pStyleRed}>{formatWithCommas(data.deaths)}</p>
                         </div>
                     </div>
-                    <div class="row overview-data">
-                        <div class="col">
+                    <div className="row overview-data">
+                        <div className="col">
                             Today's Cases:
                             <p>{formatWithCommas(data.todayCases)}</p>
                         </div>
-                        <div class="col">
+                        <div className="col">
                             Today's Deaths:
                             <p>{formatWithCommas(data.todayDeaths)}</p>
                         </div>
                     </div>
-                    <div class="row overview-data">
+                    <div className="row overview-data">
                         <div className="col overview-data">
                             Total Tests:
                             <p>{formatWithCommas(data.totalTests)}</p>

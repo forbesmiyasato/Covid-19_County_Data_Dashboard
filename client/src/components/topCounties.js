@@ -1,19 +1,15 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../topCounties.css";
+import { getColor1 } from "./colors";
 
 const FindGreatest = (data, number) => {
-    //searching for the highest states up to a certain number
-    //this function does alot since we only want to call it
-    //once on page load
     let greatestDeaths = new Array();
     let greatestCases = new Array();
     let greatestFatality = new Array();
     let current = null;
-    const [sortState, setSortState] = useState({
-        byCases: false,
-        byDeaths: true,
-        byFatality: false,
-    });
+    //searching for the highest states up to a certain number
+    //this function does alot since we only want to call it
+    //once on page load
 
     for (var i = 0; i < data.length; ++i) {
         //if county and state name are not the same, its just a county
@@ -135,31 +131,40 @@ const compareByFatality = (a, b) => {
     );
 };
 
-const displayDeaths = () => {
-    document.getElementById("death-list").style.display = "block";
-    document.getElementById("fatality-list").style.display = "none";
-    document.getElementById("case-list").style.display = "none";
-};
-
-const displayCases = () => {
-    document.getElementById("case-list").style.display = "block";
-    document.getElementById("fatality-list").style.display = "none";
-    document.getElementById("death-list").style.display = "none";
-};
-
-const displayFatality = () => {
-    document.getElementById("fatality-list").style.display = "block";
-    document.getElementById("case-list").style.display = "none";
-    document.getElementById("death-list").style.display = "none";
-};
-
-const topCounties = (props) => {
+const TopCounties = (props) => {
     let data = props.data;
     let greatest = FindGreatest(data, 5);
+
+    const [sortState, setSortState] = useState({
+        byCases: false,
+        byDeaths: true,
+        byFatality: false,
+    });
 
     greatest[0].sort(compareByDeaths);
     greatest[1].sort(compareByCases);
     greatest[2].sort(compareByFatality);
+
+    const displayDeaths = () => {
+        setSortState({ byCases: false, byDeaths: true, byFatality: false });
+        document.getElementById("death-list").style.display = "block";
+        document.getElementById("fatality-list").style.display = "none";
+        document.getElementById("case-list").style.display = "none";
+    };
+
+    const displayCases = () => {
+        setSortState({ byCases: true, byDeaths: false, byFatality: false });
+        document.getElementById("case-list").style.display = "block";
+        document.getElementById("fatality-list").style.display = "none";
+        document.getElementById("death-list").style.display = "none";
+    };
+
+    const displayFatality = () => {
+        setSortState({ byCases: false, byDeaths: false, byFatality: true });
+        document.getElementById("fatality-list").style.display = "block";
+        document.getElementById("case-list").style.display = "none";
+        document.getElementById("death-list").style.display = "none";
+    };
 
     return (
         <div id="topContainer">
@@ -168,16 +173,34 @@ const topCounties = (props) => {
                     type="button"
                     value="Highest Deaths"
                     onClick={displayDeaths}
+                    style={{
+                        backgroundColor: sortState.byDeaths
+                            ? getColor1()
+                            : null,
+                        color: sortState.byDeaths ? "#000" : null,
+                    }}
                 ></input>
                 <input
                     type="button"
                     value="Highest Cases"
                     onClick={displayCases}
+                    style={{
+                        backgroundColor: sortState.byCases
+                            ? getColor1()
+                            : null,
+                        color: sortState.byCases ? "#000" : null,
+                    }}
                 ></input>
                 <input
                     type="button"
                     value="Highest Mortality"
                     onClick={displayFatality}
+                    style={{
+                        backgroundColor: sortState.byFatality
+                            ? getColor1()
+                            : null,
+                        color: sortState.byFatality ? "#000" : null,
+                    }}
                 ></input>
             </div>
             <ul id="death-list">
@@ -235,4 +258,4 @@ const topCounties = (props) => {
     );
 };
 
-export default topCounties;
+export default TopCounties;
