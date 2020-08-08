@@ -5,8 +5,6 @@ import CustomMapControl from "./customControl";
 import PolygonWrapper from "./polygonWrapper";
 import {getColor1, getColor2, getColor3, colorCheck} from "./colors.js"
 
-
-
 const Map = (props) => {
     const mapRef = useRef(null);
     console.log("RERENDER!");
@@ -324,7 +322,8 @@ const mapStyles = [
 function areEqual(prevProps, nextProps) {
     return (
         nextProps.geometryData.length == prevProps.geometryData.length &&
-        nextProps.healthData.length == prevProps.healthData.length
+        nextProps.healthData.length === prevProps.healthData.length &&
+        nextProps.colorChange === prevProps.colorChange
     );
 }
 

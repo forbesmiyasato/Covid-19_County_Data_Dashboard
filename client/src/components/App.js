@@ -18,6 +18,7 @@ const App = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [chartType, setChartType] = useState();
   const [selectedTimelineData, SetSelectedTimelineData] = useState();
+  const [colorChange, setColorChange] = useState(false);
 
   useEffect(() => {
     async function fetchGeometryData() {
@@ -92,11 +93,16 @@ const App = () => {
     console.log("hovered");
   };
 
+  const invokeColorChange = () => {
+    setColorChange(!colorChange);
+    console.log("color change");
+  }
+
   const onListItemLeave = (county, state) => {};
 
   return (
     <view>
-      <Header data={healthData} onClick={onCountyClick}></Header>
+      <Header data={healthData} onClick={onCountyClick} colorChange={invokeColorChange}></Header>
       <CountyList
         data={healthData}
         onClick={onCountyClick}
@@ -105,6 +111,7 @@ const App = () => {
       ></CountyList>
       <div id="dashboardMap">
         <Map
+          colorChange={colorChange}
           geometryData={geometryData}
           healthData={healthData}
           onClick={onCountyClick}

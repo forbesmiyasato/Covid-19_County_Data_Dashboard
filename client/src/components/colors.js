@@ -37,7 +37,7 @@ const getColor3 = () =>{
 }
 
 
-const AccessColors = () => {
+const AccessColors = (props) => {
     const [color, setColor] = useState({
         standard1: "#D48166",
         standard2: "#FC4E2A",
@@ -89,7 +89,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.standard1
-        } 
+        }
+        props.colorChange();
     }
 
     const protanopia = () =>{
@@ -111,7 +112,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.protanopia1
-        } 
+        }
+        props.colorChange();
     }
 
     const protanamoly = () =>{
@@ -133,7 +135,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.protanomaly1
-        } 
+        }
+        props.colorChange();
     }
 
     const deuteranopia = () =>{
@@ -155,7 +158,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.deuteranopia1
-        } 
+        }
+        props.colorChange();
     }
 
     const deuteranomaly = () =>{
@@ -178,6 +182,7 @@ const AccessColors = () => {
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.deuteranomaly1
         } 
+        props.colorChange();
     }
 
     const tritanopia = () =>{
@@ -200,6 +205,7 @@ const AccessColors = () => {
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.tritanopia1
         } 
+        props.colorChange();
     }
 
     const tritanomaly = () =>{
@@ -221,7 +227,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.tritanomaly1
-        } 
+        }
+        props.colorChange();
     }
 
     const achromatopsia = () =>{
@@ -243,7 +250,8 @@ const AccessColors = () => {
         var background = document.getElementsByTagName('view')
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.achromatopsia1
-        } 
+        }
+        props.colorChange();
     }
 
     const achromatomally = () =>{
@@ -266,6 +274,7 @@ const AccessColors = () => {
         for(let i = 0; i < background.length; ++i){
             background[i].style.backgroundColor = color.achromatomally1
         } 
+        props.colorChange();
     }
     
 

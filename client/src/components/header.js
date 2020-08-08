@@ -67,7 +67,7 @@ const Header = (props) => {
           })}
         </ul>
       </div>
-      <AccessColors></AccessColors>
+      <AccessColors colorChange={props.colorChange}></AccessColors>
     </div>
   );
 };
