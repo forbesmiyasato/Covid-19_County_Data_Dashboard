@@ -12,19 +12,19 @@
 }
 
 .severity-1 {
-    fill: #D48166;
+    /* fill: #D48166; */
     stroke-width: 3;
     stroke: #fff;
 }
 
 .severity-2 {
-    fill: #FC4E2A;
+    /* fill: #FC4E2A; */
     stroke-width: 3;
     stroke: #fff;
 }
 
 .severity-3 {
-    fill: #BD0026;
+    /* fill: #BD0026; */
     stroke-width: 3;
     stroke: #fff;
 }

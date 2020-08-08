@@ -2,9 +2,9 @@ import React, {useState} from "react"
 import "../colors.css"
 import "../map.css"
 
-var color1 = "#BD0026"
+var color1 = "#D48166"
 var color2 = "#FC4E2A"
-var color3 = "#D48166"
+var color3 = "#BD0026"
 
 const showOptions = () =>{
     if(document.getElementById("access-options").style.display == "none"){

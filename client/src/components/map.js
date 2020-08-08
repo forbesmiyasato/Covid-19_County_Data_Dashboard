@@ -15,9 +15,9 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return getColor1();
+            if (found["new"] > 100) return getColor3();
             else if (found["new"] > 0) return getColor2();
-            else if (found["new"] === 0) return getColor3();
+            else if (found["new"] === 0) return getColor1();
         } else return "#fff";
     };
 
@@ -57,15 +57,15 @@ const Map = (props) => {
                 >
                     <div class="card-body text-dark card-legends">
                         <svg className="color-block">
-                            <rect className="color-block severity-1"/>
+                            <rect className="color-block severity-1" style={{fill: getColor1()}}/>
                         </svg>
                         {'= 0'}
                         <svg className="color-block">
-                            <rect className="color-block severity-2"/>
+                            <rect className="color-block severity-2" style={{fill: getColor2()}}/>
                         </svg>
                         {'0 - 100'}
                         <svg className="color-block">
-                            <rect className="color-block severity-3"/>
+                            <rect className="color-block severity-3" style={{fill: getColor3()}}/>
                         </svg>
                         {'> 100'}
                     </div>
