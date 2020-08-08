@@ -15,9 +15,9 @@ const Map = (props) => {
                 element["state_name"] === stateName
         );
         if (found) {
-            if (found["new"] > 100) return getColor1();
+            if (found["new"] > 100) return getColor3();
             else if (found["new"] > 0) return getColor2();
-            else if (found["new"] === 0) return getColor3();
+            else if (found["new"] === 0) return getColor1();
         } else return "#fff";
     };
 
