@@ -1,5 +1,5 @@
 import React from "react";
-
+const formatWithCommas = require('./utilities');
 
 var pStyleRed = {
     color: '#DB0700'

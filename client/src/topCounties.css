@@ -28,6 +28,7 @@ input[type="button"] {
   background-color: #e6e2dd;
   font-size: 2em;
   height: 100%;
+  width: 33.3%;
 }
 
 input[type="button"]:hover {
