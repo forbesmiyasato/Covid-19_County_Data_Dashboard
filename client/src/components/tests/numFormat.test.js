@@ -1,5 +1,3 @@
-import React from "react";
-import { shallow, mount, render } from "../../enzyme";
 import formatWithCommas from "../utilities";
 
 describe("testing formatting output", () => {

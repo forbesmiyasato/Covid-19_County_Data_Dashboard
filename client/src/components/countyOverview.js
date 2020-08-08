@@ -5,8 +5,6 @@ var pStyleRed = {
     color: '#DB0700'
 };
 
-
-
 const countyOverview = (props) => {
     console.log(props.data);
     const data = props.data;
