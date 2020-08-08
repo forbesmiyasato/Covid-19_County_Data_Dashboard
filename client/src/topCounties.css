@@ -31,6 +31,31 @@ input[type="button"] {
   width: 33.3%;
 }
 
+@media screen and (max-width: 1600px){
+  input[type="button"]{
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (max-width: 1400px){
+  input[type="button"]{
+    font-size: 1.6em;
+  }
+}
+
+@media screen and (max-width: 1100px){
+  input[type="button"]{
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 930px){
+  input[type="button"]{
+    font-size: 1.2em;
+  }
+}
+
+
 input[type="button"]:hover {
   opacity: 0.7;
   background-color: #9c0e01;
@@ -65,6 +90,8 @@ input[type="button"]:active {
     display: none;
   }
 }
+
+
 
 #death-list {
   display: block;

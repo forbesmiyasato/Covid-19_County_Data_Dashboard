@@ -162,7 +162,7 @@ const TopCounties = (props) => {
       <div id="topSelector">
         <input
           type="button"
-          value="Highest Deaths"
+          value="Top Deaths"
           onClick={displayDeaths}
           style={{
             backgroundColor: sortState.byDeaths ? getColor1() : null,
@@ -171,7 +171,7 @@ const TopCounties = (props) => {
         ></input>
         <input
           type="button"
-          value="Highest Cases"
+          value="Top Cases"
           onClick={displayCases}
           style={{
             backgroundColor: sortState.byCases ? getColor1() : null,
@@ -180,7 +180,7 @@ const TopCounties = (props) => {
         ></input>
         <input
           type="button"
-          value="Highest Mortality"
+          value="Top Mortality"
           onClick={displayFatality}
           style={{
             backgroundColor: sortState.byFatality ? getColor1() : null,
