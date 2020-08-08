@@ -150,11 +150,17 @@ const topCounties = (props) => {
   return (
     <div id="topContainer">
       <div id="topSelector">
-        <input type="button" value="Deaths" onClick={displayDeaths}></input>
-        <input type="button" value="Cases" onClick={displayCases}></input>
+        <input type="button" 
+               value="Highest Deaths" 
+               onClick={displayDeaths}>
+        </input>
+        <input type="button" 
+               value="Highest Cases" 
+               onClick={displayCases}>
+        </input>
         <input
           type="button"
-          value="Mortality"
+          value="Highest Mortality"
           onClick={displayFatality}
         ></input>
       </div>

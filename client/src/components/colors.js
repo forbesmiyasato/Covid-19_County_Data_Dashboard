@@ -86,6 +86,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.standard3
             setColor3(color.standard3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.standard1
+        } 
     }
 
     const protanopia = () =>{
@@ -104,6 +108,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.protanopia3
             setColor3(color.protanopia3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.protanopia1
+        } 
     }
 
     const protanamoly = () =>{
@@ -122,6 +130,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.protanomaly3
             setColor3(color.protanomaly3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.protanomaly1
+        } 
     }
 
     const deuteranopia = () =>{
@@ -140,6 +152,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.deuteranopia3
             setColor3(color.deuteranopia3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.deuteranopia1
+        } 
     }
 
     const deuteranomaly = () =>{
@@ -158,6 +174,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.deuteranomaly3
             setColor3(color.deuteranomaly3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.deuteranomaly1
+        } 
     }
 
     const tritanopia = () =>{
@@ -176,6 +196,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.tritanopia3
             setColor3(color.tritanopia3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.tritanopia1
+        } 
     }
 
     const tritanomaly = () =>{
@@ -194,6 +218,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.tritanomaly3
             setColor3(color.tritanomaly3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.tritanomaly1
+        } 
     }
 
     const achromatopsia = () =>{
@@ -212,6 +240,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.achromatopsia3
             setColor3(color.achromatopsia3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.achromatopsia1
+        } 
     }
 
     const achromatomally = () =>{
@@ -230,6 +262,10 @@ const AccessColors = () => {
             color3[i].style.fill = color.achromatomally3
             setColor3(color.achromatomally3)
         }
+        var background = document.getElementsByTagName('view')
+        for(let i = 0; i < background.length; ++i){
+            background[i].style.backgroundColor = color.achromatomally1
+        } 
     }
     
 
