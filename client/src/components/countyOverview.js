@@ -5,14 +5,14 @@ var pStyleRed = {
     color: '#DB0700'
 };
 
-const formatWithCommas = (valueIn) => {
-    return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
 
 
 const countyOverview = (props) => {
     console.log(props.data);
     const data = props.data;
+    const formatWithCommas = (valueIn) => {
+        return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return (
         <div class="side">
             <div class="container county-overview">
