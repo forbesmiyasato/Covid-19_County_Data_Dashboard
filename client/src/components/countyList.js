@@ -113,6 +113,16 @@ const CountyList = (props) => {
         setModifiedData([...originalData]);
     };
 
+    const onButtonMouseOver = () => {
+        const button = document.getElementsByClassName("search-btn")[0];
+        button.style.backgroundColor = getColor1();
+    }
+
+    const onButtonMouseLeave = () => {
+        const button = document.getElementsByClassName("search-btn")[0];
+        button.style.backgroundColor = "#fff";
+    }
+
     return (
         <div className="side" id="county-list">
             <div className="search-box">
@@ -129,6 +139,8 @@ const CountyList = (props) => {
                     data-toggle="dropdown"
                     aria-haspopup="true"
                     aria-expanded="false"
+                    onMouseOver={onButtonMouseOver}
+                    onMouseLeave={onButtonMouseLeave}
                 >
                     <i className="fas fa-bars"></i>
                 </button>
