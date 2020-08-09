@@ -1,6 +1,9 @@
 How to start the dashboard:
-root directory: npm install -> node server.js -> cd client
-client directory: npm start (to run application) || npm test (to run tests)
+
+root directory - npm install -> node server.js -> cd client
+
+client directory - npm start (to run application) || npm test (to run tests)
+
 
 References:
 
