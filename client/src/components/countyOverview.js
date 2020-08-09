@@ -1,5 +1,6 @@
 import React from "react";
 import "../countyOverview.css";
+const formatWithCommas = require('./utilities');
 
 var pStyleRed = {
     color: '#DB0700'
@@ -8,11 +9,11 @@ var pStyleRed = {
 const countyOverview = (props) => {
     console.log(props.data);
     const data = props.data;
-    const formatWithCommas = (valueIn) => {
-        return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+    // const formatWithCommas = (valueIn) => {
+    //     return valueIn.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+    // }
     return (
-        <div role="grid" class="side">
+        <div class="side">
             <div class="container county-overview">
                 <p>County Overview</p>
                 <p>
