@@ -15,13 +15,13 @@ const countyOverview = (props) => {
         <div role="grid" class="side">
             <div class="container county-overview">
                 <p>County Overview</p>
+                <p>
+                    {data.county_name}, {data.state_name}
+                </p>
                 <div class="row">
                     <div class="col button" onClick={props.togglePopup.bind(this, 'cases')}>Cases</div>
                     <div class="col button" onClick={props.togglePopup.bind(this, 'deaths')}>Deaths</div>
                 </div>
-                <p>
-                    {data.county_name}, {data.state_name}
-                </p>
                 <div className="overview-data-container">
                     <div class="row overview-data">
                         <div class="col">
