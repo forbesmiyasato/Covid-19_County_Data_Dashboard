@@ -17,6 +17,18 @@
   background-color: #282828;
 }
 
+@media screen and (max-width: 768px){
+  #headerContainer{
+    justify-content: none;
+  }
+
+  #mobile-search-box{
+    position: relative;
+    right: 8%;
+}
+}
+
+
 #dashboardName {
   font-weight: bold;
   color: white;

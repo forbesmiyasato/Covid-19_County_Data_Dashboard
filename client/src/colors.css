@@ -1,6 +1,5 @@
 
 .accessibility-menu {
-    
     margin-right: 10px;
     height: 50%;
     width: auto;
@@ -13,6 +12,9 @@
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap;
+        position: absolute;
+        right: 0;
+        top: 5%;
     }
     .drop{
         display: none;
@@ -40,11 +42,17 @@
 }
 
 #mobile-down-arrow{
+    margin: 1%;
     cursor: pointer;
     color: white;
     font-size: 2em;
-    margin: 4px;
     display: block;
+}
+
+@media screen and (max-width: 500px){
+    #mobile-down-arrow{
+        font-size: 1.6em;
+    }
 }
 
 @media screen and (min-width: 768px){
