@@ -124,9 +124,10 @@ const CountyList = (props) => {
     }
 
     return (
-        <div role="list-of-counties" className="side" id="county-list">
+        <div role="list" className="side" id="county-list">
             <div className="search-box">
                 <input
+                    aria-label="search-for-county" 
                     className="search-txt"
                     type="text"
                     placeholder="Search counties"

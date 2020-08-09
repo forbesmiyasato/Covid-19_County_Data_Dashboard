@@ -12,7 +12,7 @@ const countyOverview = (props) => {
         return valueIn.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     return (
-        <div role="county-overview" class="side">
+        <div role="table" class="side">
             <div class="container county-overview">
                 <p>County Overview</p>
                 <div class="row">
