@@ -9,6 +9,11 @@
     width: 100%;
 }
 
+::placeholder {
+    color: black;
+    opacity: 1;
+}
+
 #county-list ul > li {
     /* width: 90%; */
     padding: 0 10px;
@@ -58,7 +63,7 @@
     height: 8%;
 }
 
-/*.search-box:hover > .search-txt {
+/*.h-box:hover > .search-txt {
           width: 80%;
           padding: 0 6px;
       }*/
@@ -95,7 +100,7 @@
     outline: none;
     float: left;
     padding: 0;
-    color: #777;
+    color: black;
     font-size: 1.2rem;
     width: 85%;
     font-weight: 400;

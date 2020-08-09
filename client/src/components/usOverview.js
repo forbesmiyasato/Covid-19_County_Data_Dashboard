@@ -1,5 +1,8 @@
 import React from "react";
+import "../usOverview.css"
+
 const formatWithCommas = require('./utilities');
+
 
 var pStyleRed = {
     color: '#DB0700'
@@ -13,7 +16,7 @@ const countyOverview = (props) => {
     let data = props.data;
     
     return (
-        <div role="usOverview" className="side" style={{ color: "#777" }}>
+        <div className="side" style={{ color: "#777" }}>
             <div className="container county-overview">
                 <p>US Overview</p>
                 <div className="overview-data-container">
