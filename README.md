@@ -1,3 +1,12 @@
+How to start the dashboard:
+
+root directory - npm install -> node server.js -> cd client
+
+client directory - npm install -> npm start (to run application) || npm test (to run tests)
+
+
+References:
+
 Enzyme tutorial: 
 https://blog.logrocket.com/getting-started-with-enzyme-for-react-a106b58fc53b/
 

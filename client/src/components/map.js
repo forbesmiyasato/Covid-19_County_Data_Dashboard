@@ -88,7 +88,7 @@ const Map = (props) => {
     ));
 
     return (
-        <div>
+        <div rol="geomap">
             <GoogleMapContainer
                 geometryData={props.geometryData}
                 onClick={props.onClick}

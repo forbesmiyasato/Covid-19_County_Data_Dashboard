@@ -124,15 +124,19 @@ const CountyList = (props) => {
     }
 
     return (
-        <div className="side" id="county-list">
+        <div role="list" className="side" id="county-list">
             <div className="search-box">
                 <input
+                    aria-label="search-for-county"
                     className="search-txt"
                     type="text"
                     placeholder="Search counties"
                     onChange={handleChange}
+                    onMouseOver={onButtonMouseOver}
+                    onMouseLeave={onButtonMouseLeave}
                 ></input>
                 <button
+                    aria-label = "sort by menu"
                     className="search-btn"
                     style={{ color: getColor1() }}
                     id="sortDropdown"
@@ -147,6 +151,8 @@ const CountyList = (props) => {
                 <div
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
+                    onMouseOver={onButtonMouseOver}
+                    onMouseLeave={onButtonMouseLeave}
                 >
                     <a
                         className="dropdown-item sort-by-states"
@@ -174,7 +180,7 @@ const CountyList = (props) => {
                     </a>
                 </div>
             </div>
-            <ul>
+            <ul tabIndex="0">
                 {modifiedData
                     ? modifiedData.map((county, i) => {
                           return (
