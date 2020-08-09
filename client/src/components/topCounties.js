@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../topCounties.css";
-import { getColor1 } from "./colors";
+import { getColor1, getColor2, getColor3 } from "./colors";
 
 const FindGreatest = (data, number) => {
   let greatestDeaths = new Array();
@@ -136,7 +136,10 @@ const TopCounties = (props) => {
   greatest[1].sort(compareByCases);
   greatest[2].sort(compareByFatality);
 
+  const [active, setActive] = useState("deaths")
+
   const displayDeaths = () => {
+    setActive("deaths")
     setSortState({ byCases: false, byDeaths: true, byFatality: false });
     document.getElementById("death-list").style.display = "block";
     document.getElementById("fatality-list").style.display = "none";
@@ -144,6 +147,7 @@ const TopCounties = (props) => {
   };
 
   const displayCases = () => {
+    setActive("cases")
     setSortState({ byCases: true, byDeaths: false, byFatality: false });
     document.getElementById("case-list").style.display = "block";
     document.getElementById("fatality-list").style.display = "none";
@@ -151,19 +155,72 @@ const TopCounties = (props) => {
   };
 
   const displayFatality = () => {
+    setActive("mortality")
     setSortState({ byCases: false, byDeaths: false, byFatality: true });
     document.getElementById("fatality-list").style.display = "block";
     document.getElementById("case-list").style.display = "none";
     document.getElementById("death-list").style.display = "none";
   };
 
+    const mouseOverDeaths = () =>{
+        let button = document.getElementById("top-deaths")
+        button.style.backgroundColor = getColor2()
+    }
+
+    const mouseLeaveDeaths = () =>{
+        let button = document.getElementById("top-deaths")
+        if(active != "deaths"){
+            button.style.backgroundColor = "white"
+        }
+        else {
+            button.style.backgroundColor = getColor1()
+        }
+    }
+
+
+
+    const mouseOverCases = () =>{
+        let button = document.getElementById("top-cases")
+        button.style.backgroundColor = getColor2()
+    }
+
+    const mouseLeaveCases = () =>{
+        let button = document.getElementById("top-cases")
+        if(active != "cases"){
+            button.style.backgroundColor = "white"
+        }
+        else {
+            button.style.backgroundColor = getColor1()
+        }
+    }
+
+
+
+    const mouseOverFatality = () =>{
+        let button = document.getElementById("top-mortality")
+        button.style.backgroundColor = getColor2()
+    }
+
+    const mouseLeaveFatality = () =>{
+        let button = document.getElementById("top-mortality")
+        if(active != "mortality"){
+            button.style.backgroundColor = "white"
+        }
+        else {
+            button.style.backgroundColor = getColor1()
+        }
+    }
+
   return (
     <div id="topContainer">
       <div id="topSelector">
         <input
           type="button"
+          id="top-deaths"
           value="Top Deaths"
           onClick={displayDeaths}
+          onMouseOver={mouseOverDeaths}
+          onMouseLeave={mouseLeaveDeaths}
           style={{
             backgroundColor: sortState.byDeaths ? getColor1() : null,
             color: sortState.byDeaths ? "#000" : null,
@@ -172,7 +229,10 @@ const TopCounties = (props) => {
         <input
           type="button"
           value="Top Cases"
+          id="top-cases"
           onClick={displayCases}
+          onMouseOver={mouseOverCases}
+          onMouseLeave={mouseLeaveCases}
           style={{
             backgroundColor: sortState.byCases ? getColor1() : null,
             color: sortState.byCases ? "#000" : null,
@@ -181,7 +241,10 @@ const TopCounties = (props) => {
         <input
           type="button"
           value="Top Mortality"
+          id="top-mortality"
           onClick={displayFatality}
+          onMouseOver={mouseOverFatality}
+          onMouseLeave={mouseLeaveFatality}
           style={{
             backgroundColor: sortState.byFatality ? getColor1() : null,
             color: sortState.byFatality ? "#000" : null,

@@ -281,7 +281,7 @@ const AccessColors = (props) => {
     
     return (
         <div class="accessibility-menu">
-            <button class="drop" onClick={showOptions}>Colorblind Options <i id="down-arrow" class='fa fa-angle-down'></i></button>
+            <button class="drop" onClick={showOptions}>Colorblind Options <i id="down-arrow" class='fa fa-angle-down' display="none"></i></button>
             <ul id="access-options">
                 <li class="access-item" id="access-1" onClick={standard}>Standard</li>
                 <li class="access-item" id="access-2" onClick={protanopia}>Protanopia</li>
