@@ -123,16 +123,11 @@ const CountyList = (props) => {
         button.style.backgroundColor = "#fff";
     }
 
-    const onDropdownMenu = () => {
-        const button = document.getElementsByClassName("search-btn")[0];
-        button.style.backgroundColor = getColor1();
-    }
-
     return (
         <div role="list" className="side" id="county-list">
             <div className="search-box">
                 <input
-                    aria-label="search-for-county" 
+                    aria-label="search-for-county"
                     className="search-txt"
                     type="text"
                     placeholder="Search counties"
