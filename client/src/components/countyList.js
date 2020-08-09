@@ -123,6 +123,11 @@ const CountyList = (props) => {
         button.style.backgroundColor = "#fff";
     }
 
+    const onDropdownMenu = () => {
+        const button = document.getElementsByClassName("search-btn")[0];
+        button.style.backgroundColor = getColor1();
+    }
+
     return (
         <div role="list-of-counties" className="side" id="county-list">
             <div className="search-box">
@@ -131,6 +136,8 @@ const CountyList = (props) => {
                     type="text"
                     placeholder="Search counties"
                     onChange={handleChange}
+                    onMouseOver={onButtonMouseOver}
+                    onMouseLeave={onButtonMouseLeave}
                 ></input>
                 <button
                     aria-label = "sort by menu"
@@ -148,6 +155,8 @@ const CountyList = (props) => {
                 <div
                     className="dropdown-menu"
                     aria-labelledby="dropdownMenuButton"
+                    onMouseOver={onButtonMouseOver}
+                    onMouseLeave={onButtonMouseLeave}
                 >
                     <a
                         className="dropdown-item sort-by-states"
