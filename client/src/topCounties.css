@@ -25,7 +25,7 @@ input[type="button"] {
     border-bottom: none; */
   border: none;
   color: black;
-  background-color: #e6e2dd;
+  background-color: white;
   font-size: 2em;
   height: 100%;
   width: 33.3%;
@@ -58,17 +58,14 @@ input[type="button"] {
 
 input[type="button"]:hover {
   opacity: 0.7;
-  background-color: #9c0e01;
 }
 
 input[type="button"]:focus {
   opacity: 1;
-  background-color: #9c0e01;
 }
 
 input[type="button"]:active {
   opacity: 1;
-  background-color: #9c0e01;
 }
 
 #topContainer {
