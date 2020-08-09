@@ -71,6 +71,7 @@ const AccessColors = (props) => {
     });
 
     const standard = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.standard1
@@ -94,6 +95,7 @@ const AccessColors = (props) => {
     }
 
     const protanopia = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.protanopia1
@@ -117,6 +119,7 @@ const AccessColors = (props) => {
     }
 
     const protanamoly = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.protanomaly1
@@ -140,6 +143,7 @@ const AccessColors = (props) => {
     }
 
     const deuteranopia = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.deuteranopia1
@@ -163,6 +167,7 @@ const AccessColors = (props) => {
     }
 
     const deuteranomaly = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.deuteranomaly1
@@ -186,6 +191,7 @@ const AccessColors = (props) => {
     }
 
     const tritanopia = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.tritanopia1
@@ -209,6 +215,7 @@ const AccessColors = (props) => {
     }
 
     const tritanomaly = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.tritanomaly1
@@ -232,6 +239,7 @@ const AccessColors = (props) => {
     }
 
     const achromatopsia = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.achromatomally1
@@ -255,6 +263,7 @@ const AccessColors = (props) => {
     }
 
     const achromatomally = () =>{
+        document.getElementById("access-options").style.display = "none"
         let color1 = document.getElementsByClassName("severity-1")
         for(let i = 0; i < color1.length; ++i){
             color1[i].style.fill = color.achromatomally1
