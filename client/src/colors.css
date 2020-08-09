@@ -1,5 +1,6 @@
 
 .accessibility-menu {
+    
     margin-right: 10px;
     height: 50%;
     width: auto;
@@ -9,6 +10,11 @@
 
 @media screen and (max-width: 768px){
     .accessibility-menu{
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+    .drop{
         display: none;
     }
 }
@@ -31,6 +37,19 @@
 
 #downarrow {
     margin: 10px;
+}
+
+#mobile-down-arrow{
+    color: white;
+    font-size: 2em;
+    margin: 4px;
+    display: block;
+}
+
+@media screen and (min-width: 768px){
+    #mobile-down-arrow{
+        display: none;
+    }
 }
 
 .access-item {
