@@ -128,6 +128,8 @@ const App = () => {
       )}
       {showPopup ? (
         <Popup
+          county={selectedCounty["county_name"]}
+          state={selectedCounty["state_name"]}
           togglePopup={togglePopup}
           chartType={chartType}
           timelineData={selectedTimelineData}
