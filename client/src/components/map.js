@@ -321,7 +321,7 @@ const mapStyles = [
 
 function areEqual(prevProps, nextProps) {
     return (
-        nextProps.geometryData.length == prevProps.geometryData.length &&
+        nextProps.geometryData.length === prevProps.geometryData.length &&
         nextProps.healthData.length === prevProps.healthData.length &&
         nextProps.colorChange === prevProps.colorChange
     );

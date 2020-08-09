@@ -96,7 +96,7 @@
 }
 
 @media (max-width: 1023px) {
-  .search-txt {
+  .search-txt-mobile {
     font-family: Arial , fontAwesome;
   }
 
