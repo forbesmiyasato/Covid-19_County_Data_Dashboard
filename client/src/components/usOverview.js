@@ -16,7 +16,7 @@ const countyOverview = (props) => {
     let data = props.data;
     
     return (
-        <div role="table" className="side" style={{ color: "#777" }}>
+        <div className="side" style={{ color: "#777" }}>
             <div className="container county-overview">
                 <p>US Overview</p>
                 <div className="overview-data-container">

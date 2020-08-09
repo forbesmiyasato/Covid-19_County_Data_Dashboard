@@ -301,7 +301,7 @@ const AccessColors = (props) => {
                 <li class="access-item" id="access-6" onClick={tritanopia}>Tritanopia</li>
                 <li class="access-item" id="access-7" onClick={tritanomaly}>Tritanomaly</li>
                 <li class="access-item" id="access-8" onClick={achromatopsia}>Achromatopsia</li>
-                <li class="access-item" id="access-8" onClick={achromatomally}>Achromatomaly</li>
+                <li class="access-item" id="access-9" onClick={achromatomally}>Achromatomaly</li>
             </ul>
         </div>
     )

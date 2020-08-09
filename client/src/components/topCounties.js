@@ -212,7 +212,7 @@ const TopCounties = (props) => {
     }
 
   return (
-    <div id="topContainer" role="table">
+    <div id="topContainer" role="list">
       <div id="topSelector">
         <input
           type="button"
