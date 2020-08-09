@@ -53,10 +53,6 @@ const countyOverview = (props) => {
                             <p>{data.last_update}</p>
                         </div>
                     </div>
-                <div class="row">
-                <div class="col button" onClick={props.togglePopup.bind(this, 'byState')}>Monthly Cases</div>
-                <div class="col button" onClick={props.togglePopup.bind(this, 'deaths')}>Monthly Deaths</div>
-                </div>
                 </div>
             </div>
         </div>
