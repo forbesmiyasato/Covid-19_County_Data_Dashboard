@@ -102,14 +102,16 @@ const App = () => {
 
   return (
     <view>
+     
       <Header data={healthData} onClick={onCountyClick} colorChange={invokeColorChange}></Header>
+
       <CountyList
         data={healthData}
         onClick={onCountyClick}
         onHover={onListItemHover}
         onLeave={onListItemLeave}
       ></CountyList>
-      <div id="dashboardMap">
+      <div id="dashboardMap" role="main">
         <Map
           colorChange={colorChange}
           geometryData={geometryData}

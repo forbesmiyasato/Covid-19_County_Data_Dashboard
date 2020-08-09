@@ -124,7 +124,7 @@ const CountyList = (props) => {
     }
 
     return (
-        <div className="side" id="county-list">
+        <div role="list-of-counties" className="side" id="county-list">
             <div className="search-box">
                 <input
                     className="search-txt"
@@ -133,6 +133,7 @@ const CountyList = (props) => {
                     onChange={handleChange}
                 ></input>
                 <button
+                    aria-label = "sort by menu"
                     className="search-btn"
                     style={{ color: getColor1() }}
                     id="sortDropdown"
@@ -174,7 +175,7 @@ const CountyList = (props) => {
                     </a>
                 </div>
             </div>
-            <ul>
+            <ul tabIndex="0">
                 {modifiedData
                     ? modifiedData.map((county, i) => {
                           return (

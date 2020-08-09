@@ -36,7 +36,7 @@ const Header = (props) => {
   };
 
   return (
-    <div id="headerContainer">
+    <div id="headerContainer" role="banner">
       <h1 id="dashboardName">Coronavirus US County Tracker</h1>
       <div class="search-box" id="mobile-search-box">
         <input
