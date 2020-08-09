@@ -105,6 +105,20 @@
   }
 }
 
+.search-txt-mobile {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  color: #777;
+  font-size: 1.2rem;
+  width: 85%;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
 /* .search-btn-mobile {
   float: right;
   height: 100%;
