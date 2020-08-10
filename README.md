@@ -20,4 +20,4 @@ React-google-maps tutorial/reference from:
 https://tomchentw.github.io/react-google-maps/
 
 Hex to Rgba code from:
-https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
+https://stackoverflow.com/a/21648508
