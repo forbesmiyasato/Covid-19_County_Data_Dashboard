@@ -18,3 +18,6 @@ https://developers.google.com/maps/documentation/javascript/styling
 
 React-google-maps tutorial/reference from:
 https://tomchentw.github.io/react-google-maps/
+
+Hex to Rgba code from:
+https://stackoverflow.com/questions/21646738/convert-hex-to-rgba
