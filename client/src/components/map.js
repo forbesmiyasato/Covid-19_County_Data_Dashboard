@@ -20,17 +20,6 @@ const Map = (props) => {
         } else return "#fff";
     };
 
-    useEffect(() => {
-        const buttons = document.getElementsByClassName("gm-control-active");
-        console.log(buttons);
-        if (buttons.length > 5) {
-            console.log(buttons);
-            buttons[0].alt = "full screen button";
-            buttons[1].alt = "zoom in button";
-            buttons[2].alt = "zoom out button";
-        }
-    }, [props]);
-
     const google = window.google;
 
     const GoogleMapContainer = withGoogleMap((props) => (
