@@ -26,32 +26,32 @@ const countyOverview = (props) => {
                 <div className="overview-data-container">
                     <div class="row overview-data">
                         <div class="col">
-                            Confirmed:
-                            <p>{formatWithCommas(data.confirmed)}</p>
+                            <div className="covid-header">Confirmed:</div>
+                            <p className="covid-data">{formatWithCommas(data.confirmed)}</p>
                         </div>
                         <div class="col">
-                            New:
-                            <p>{formatWithCommas(data.new)}</p>
-                        </div>
-                    </div>
-                    <div class="row overview-data">
-                        <div class="col">
-                            Deaths:
-                            <p style={pStyleRed}>{formatWithCommas(data.death)}</p>
-                        </div>
-                        <div class="col">
-                            New Deaths:
-                            <p>{formatWithCommas(data.new_death)}</p>
+                            <div className="covid-header">New:</div>
+                            <p className="covid-data">{formatWithCommas(data.new)}</p>
                         </div>
                     </div>
                     <div class="row overview-data">
                         <div class="col">
-                            Fatality Rate:
-                            <p>{data.fatality_rate}</p>
+                            <div className="covid-header">Deaths:</div>
+                            <p className="covid-data">{formatWithCommas(data.death)}</p>
                         </div>
                         <div class="col">
-                            Last Update:
-                            <p>{data.last_update}</p>
+                            <div className="covid-header">New Deaths:</div>
+                            <p className="covid-data">{formatWithCommas(data.new_death)}</p>
+                        </div>
+                    </div>
+                    <div class="row overview-data">
+                        <div class="col">
+                            <div className="covid-header">Fatality Rate:</div>
+                            <p className="covid-data">{data.fatality_rate}</p>
+                        </div>
+                        <div class="col">
+                            <div className="covid-header">Last Update:</div>
+                            <p className="covid-data">{data.last_update}</p>
                         </div>
                     </div>
                 </div>

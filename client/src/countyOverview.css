@@ -170,3 +170,15 @@
 .overview-data {
     height: 22% !important;
 }
+
+.covid-header {
+    border-bottom: 1px solid #777;
+}
+
+.covid-data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    font-size: 1.6rem;
+}
