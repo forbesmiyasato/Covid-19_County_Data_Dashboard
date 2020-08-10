@@ -13,19 +13,16 @@
 #byState,
 #county,
 #byCounty {
-
-    font-size: .8em;
-
+    font-size: 0.8em;
 }
 
-
 .pStyleRed {
-    color: '#DB0700'
-};
+    color: "#DB0700";
+}
 
 .pStyleGreen {
-    color: '#1ADB4A'
-};
+    color: "#1ADB4A";
+}
 
 .grid-item {
     padding: 10px;
@@ -44,7 +41,6 @@
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 2px;
-
     }
 
     .confirmed {
@@ -145,9 +141,9 @@
 
 /* new */
 .button {
-    background-color: #E6E2DD;
+    background-color: #e6e2dd;
     text-align: center;
-    color: #373A36;
+    color: #373a36;
 }
 
 .button:hover {
@@ -173,6 +169,7 @@
 
 .covid-header {
     border-bottom: 1px solid #777;
+    font-size: 1.2rem;
 }
 
 .covid-data {
@@ -181,4 +178,14 @@
     align-items: center;
     height: 70%;
     font-size: 1.6rem;
+}
+
+@media (max-width: 1115px) {
+    .covid-header {
+        font-size: 1rem;
+    }
+
+    .covid-data {
+        font-size: 1.2rem;
+    }
 }

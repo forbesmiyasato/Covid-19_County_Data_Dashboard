@@ -10,135 +10,151 @@ import axios from "axios";
 import Popup from "./popup";
 
 const App = () => {
-  const [healthData, setHealthData] = useState([]);
-  const [selectedCounty, setSelectedCounty] = useState(null);
-  const [geometryData, setGeometryData] = useState([]);
-  const [overviewUS, setOverviewUS] = useState({});
-  const [countyCasesDeaths, setCountyCasesDeaths] = useState({});
-  const [showPopup, setShowPopup] = useState(false);
-  const [chartType, setChartType] = useState();
-  const [selectedTimelineData, SetSelectedTimelineData] = useState();
-  const [colorChange, setColorChange] = useState(false);
+    const [healthData, setHealthData] = useState([]);
+    const [selectedCounty, setSelectedCounty] = useState(null);
+    const [geometryData, setGeometryData] = useState([]);
+    const [overviewUS, setOverviewUS] = useState({});
+    const [countyCasesDeaths, setCountyCasesDeaths] = useState({});
+    const [showPopup, setShowPopup] = useState(false);
+    const [chartType, setChartType] = useState();
+    const [selectedTimelineData, SetSelectedTimelineData] = useState();
+    const [colorChange, setColorChange] = useState(false);
 
-  useEffect(() => {
-    async function fetchGeometryData() {
-      const geoResult = await axios("/all?state=OR");
-      setGeometryData(geoResult.data);
+    //adding alt tags to google buttons
+    const buttons = document.getElementsByClassName("gm-control-active");
+    console.log(buttons.length);
+    if (buttons.length > 5) {
+        console.log(buttons);
+        buttons[0].alt = "full screen button";
+        buttons[1].alt = "zoom in button";
+        buttons[2].alt = "zoom out button";
     }
 
-    async function fetchHealthData() {
-      const healthResult = await axios(
-        "https://covid19-us-api.herokuapp.com/county"
-      );
-      setHealthData(healthResult.data.message);
-    }
+    useEffect(() => {
+        async function fetchGeometryData() {
+            const geoResult = await axios("/all?state=OR");
+            setGeometryData(geoResult.data);
+        }
 
-    async function fetchOverviewUS() {
-      const overviewResult = await axios(
-        "https://coronavirus-19-api.herokuapp.com/countries/usa"
-      );
-      setOverviewUS(overviewResult.data);
-    }
+        async function fetchHealthData() {
+            const healthResult = await axios(
+                "https://covid19-us-api.herokuapp.com/county"
+            );
+            setHealthData(healthResult.data.message);
+        }
 
-    async function fetchCountyCasesDeaths() {
-      const casesDeathsResult = await axios(
-        "https://samboy.github.io/covid-19-html/covid-19-byCounty.json"
-      );
-      setCountyCasesDeaths(casesDeathsResult);
-    }
+        async function fetchOverviewUS() {
+            const overviewResult = await axios(
+                "https://coronavirus-19-api.herokuapp.com/countries/usa"
+            );
+            setOverviewUS(overviewResult.data);
+        }
 
-    // async function fetchStateCasesDeaths() {
-    //   const stateDeathsResult = await axios(
-    //     "https://api.covidtracking.com/v1/states/ca/current.json"
-    //   );
-    //   setStateDeaths(statesDeathsResult);
-    // }
+        async function fetchCountyCasesDeaths() {
+            const casesDeathsResult = await axios(
+                "https://samboy.github.io/covid-19-html/covid-19-byCounty.json"
+            );
+            setCountyCasesDeaths(casesDeathsResult);
+        }
 
+        // async function fetchStateCasesDeaths() {
+        //   const stateDeathsResult = await axios(
+        //     "https://api.covidtracking.com/v1/states/ca/current.json"
+        //   );
+        //   setStateDeaths(statesDeathsResult);
+        // }
 
-    Promise.all([
-      fetchGeometryData(),
-      fetchHealthData(),
-      fetchOverviewUS(),
-      fetchCountyCasesDeaths(),
-     // fetchStateCasesDeaths(),
-    ]);
-  }, []);
+        Promise.all([
+            fetchGeometryData(),
+            fetchHealthData(),
+            fetchOverviewUS(),
+            fetchCountyCasesDeaths(),
+            // fetchStateCasesDeaths(),
+        ]);
+    }, []);
 
-  const togglePopup = (type) => {
-    setShowPopup(!showPopup);
-    setChartType(type);
-  };
-  console.log(overviewUS);
-  console.log(healthData);
+    const togglePopup = (type) => {
+        setShowPopup(!showPopup);
+        setChartType(type);
+    };
+    console.log(overviewUS);
+    console.log(healthData);
 
-  const onCountyClick = (name, state) => {
-    const found = healthData.find(
-      (element) =>
-        element["county_name"] === name && element["state_name"] === state
+    const onCountyClick = (name, state) => {
+        const found = healthData.find(
+            (element) =>
+                element["county_name"] === name &&
+                element["state_name"] === state
+        );
+        if (found) {
+            setSelectedCounty(found);
+        }
+
+        const timelineData = countyCasesDeaths.data[state][name];
+        if (timelineData) {
+            SetSelectedTimelineData(timelineData);
+        }
+        // const found2 = (countyCasesDeaths.find(element => element == state));
+        // console.log(found2);
+    };
+
+    const onListItemHover = (county, state) => {
+        // console.log(this.refs[`${county}${state}`]);
+        console.log("hovered");
+    };
+
+    const invokeColorChange = () => {
+        setColorChange(!colorChange);
+        console.log("color change");
+    };
+
+    const onListItemLeave = (county, state) => {};
+
+    return (
+        <view>
+            <Header
+                data={healthData}
+                onClick={onCountyClick}
+                colorChange={invokeColorChange}
+            ></Header>
+
+            <CountyList
+                data={healthData}
+                onClick={onCountyClick}
+                onHover={onListItemHover}
+                onLeave={onListItemLeave}
+            ></CountyList>
+            <div id="dashboardMap" role="main">
+                <Map
+                    colorChange={colorChange}
+                    geometryData={geometryData}
+                    healthData={healthData}
+                    onClick={onCountyClick}
+                ></Map>
+                <TopCounties
+                    data={healthData}
+                    onClick={onCountyClick}
+                ></TopCounties>
+            </div>
+            {selectedCounty ? (
+                <CountyOverview
+                    data={selectedCounty}
+                    togglePopup={togglePopup}
+                ></CountyOverview>
+            ) : (
+                <USOverview data={overviewUS}></USOverview>
+            )}
+            {showPopup ? (
+                <Popup
+                    county={selectedCounty["county_name"]}
+                    state={selectedCounty["state_name"]}
+                    togglePopup={togglePopup}
+                    chartType={chartType}
+                    timelineData={selectedTimelineData}
+                />
+            ) : null}
+        </view>
     );
-    if (found) {
-      setSelectedCounty(found);
-    }
-
-    const timelineData = countyCasesDeaths.data[state][name];
-    if (timelineData) {
-      SetSelectedTimelineData(timelineData);
-    }
-    // const found2 = (countyCasesDeaths.find(element => element == state));
-    // console.log(found2);
-  };
-
-  const onListItemHover = (county, state) => {
-    // console.log(this.refs[`${county}${state}`]);
-    console.log("hovered");
-  };
-
-  const invokeColorChange = () => {
-    setColorChange(!colorChange);
-    console.log("color change");
-  }
-
-  const onListItemLeave = (county, state) => {};
-
-  return (
-    <view>
-     
-      <Header data={healthData} onClick={onCountyClick} colorChange={invokeColorChange}></Header>
-
-      <CountyList
-        data={healthData}
-        onClick={onCountyClick}
-        onHover={onListItemHover}
-        onLeave={onListItemLeave}
-      ></CountyList>
-      <div id="dashboardMap" role="main">
-        <Map
-          colorChange={colorChange}
-          geometryData={geometryData}
-          healthData={healthData}
-          onClick={onCountyClick}
-        ></Map>
-        <TopCounties data={healthData} onClick={onCountyClick}></TopCounties>
-      </div>
-      {selectedCounty ? (
-        <CountyOverview
-          data={selectedCounty}
-          togglePopup={togglePopup}
-        ></CountyOverview>
-      ) : (
-        <USOverview data={overviewUS}></USOverview>
-      )}
-      {showPopup ? (
-        <Popup
-          county={selectedCounty["county_name"]}
-          state={selectedCounty["state_name"]}
-          togglePopup={togglePopup}
-          chartType={chartType}
-          timelineData={selectedTimelineData}
-        />
-      ) : null}
-    </view>
-  );
 };
 
 export default App;
