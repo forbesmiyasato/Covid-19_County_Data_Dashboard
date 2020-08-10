@@ -22,9 +22,7 @@ const App = () => {
 
     //adding alt tags to google buttons
     const buttons = document.getElementsByClassName("gm-control-active");
-    console.log(buttons.length);
     if (buttons.length > 5) {
-        console.log(buttons);
         buttons[0].alt = "full screen button";
         buttons[1].alt = "zoom in button";
         buttons[2].alt = "zoom out button";
@@ -57,13 +55,6 @@ const App = () => {
             setCountyCasesDeaths(casesDeathsResult);
         }
 
-        // async function fetchStateCasesDeaths() {
-        //   const stateDeathsResult = await axios(
-        //     "https://api.covidtracking.com/v1/states/ca/current.json"
-        //   );
-        //   setStateDeaths(statesDeathsResult);
-        // }
-
         Promise.all([
             fetchGeometryData(),
             fetchHealthData(),
@@ -77,8 +68,6 @@ const App = () => {
         setShowPopup(!showPopup);
         setChartType(type);
     };
-    console.log(overviewUS);
-    console.log(healthData);
 
     const onCountyClick = (name, state) => {
         const found = healthData.find(
@@ -90,17 +79,18 @@ const App = () => {
             setSelectedCounty(found);
         }
 
+        if (name === "New York"){
+          name = "New York City";
+        }
+
         const timelineData = countyCasesDeaths.data[state][name];
         if (timelineData) {
             SetSelectedTimelineData(timelineData);
         }
-        // const found2 = (countyCasesDeaths.find(element => element == state));
-        // console.log(found2);
     };
 
     const onListItemHover = (county, state) => {
-        // console.log(this.refs[`${county}${state}`]);
-        console.log("hovered");
+        // console.log("hovered");
     };
 
     const invokeColorChange = () => {

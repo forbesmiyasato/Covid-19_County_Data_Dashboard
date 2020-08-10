@@ -16,7 +16,6 @@ const CountyList = (props) => {
     useEffect(() => {
         // setOriginalData(props.data);
         setModifiedData([...originalData]);
-        console.log("COUNTY LIST");
     }, [originalData]);
 
     const handleChange = (e) => {
