@@ -118,19 +118,19 @@
     height: 20px;
 }
 
-@media (max-width: 1369px) {
+@media (max-width: 1375px) {
     .search-txt {
         width: 83%;
     }
 }
 
-@media (max-width: 1209px) {
+@media (max-width: 1216px) {
     .search-txt {
         width: 81%;
     }
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 1090px) {
     .search-txt {
         width: 79%;
     }
