@@ -5,7 +5,7 @@
 ### Welcome to Covid-19 County Data Dashboard!
 <hr>
 
-Group Final project for Summer 2020 CS510 - Front End Web Developmentat Portland State Univeristy with teammates Thomas Michael Lawrence and David Djernaes.
+CS510 - Front End Web Developmentat group final project for Summer 2020 at Portland State Univeristy with teammates Thomas Michael Lawrence and David Djernaes.
 
 <br />
 
