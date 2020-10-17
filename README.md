@@ -62,6 +62,10 @@ This project is currently feature complete and not looking for collaborators.
 <hr>
 
 Designed and implemented with Thomas Michael Lawrence and David Djernaes. 
+
+Thank you Bill Cheng for providing the county boundary geometry data!
+https://github.com/billcccheng/US-county-boundaries
+
 Thanks Isaac Yep for providing the README template.
 
 <br />
