@@ -1,18 +1,26 @@
 # Covid-19 County Data Dashboard
+CS510 - Front End Web Developmentat group final project for Summer 2020 at Portland State Univeristy with teammates Thomas Michael Lawrence and David Djernaes.
 
 <br />
 
-### Welcome to Covid-19 County Data Dashboard!
+### Welcome!
 <hr>
 
-CS510 - Front End Web Developmentat group final project for Summer 2020 at Portland State Univeristy with teammates Thomas Michael Lawrence and David Djernaes.
+Public dashboard application providing real-time data visualizations of COVID-19, statistical data related to infection, and mortality rates with a focus at the county level within the US.
+
+The most common flaw in existing examples: 
+  -  Information overload 
+  -  Cluttered appearance 
+  -  Lack of responsiveness
+
+We determined there was an opportunity for improvement. 
 
 <br />
 
 ### Table of Contents <g-emoji class="g-emoji" alias="book" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4d6.png">📖</g-emoji>
 <hr>
 
-  - [Welcome to Unibooks](#welcome-to-unibooks)
+  - [Welcome](#welcome)
   - [**Get Started**](#get-started-)
   - [Technologies/Integrations](#technologies-integrations-)
   - [Contribute](#contribute-)
@@ -64,7 +72,7 @@ Thanks Isaac Yep for providing the README template.
 
 This repository was authored by *Forbes Miyasato*.
 
-Copyright © 2020, Forbes Miyasato. All rights reserved.
+Copyright © 2020. All rights reserved.
 
 [Back to Table of Contents](#table-of-contents-)
 
