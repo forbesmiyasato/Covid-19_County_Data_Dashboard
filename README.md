@@ -32,7 +32,7 @@ We determined there was an opportunity for improvement.
 ### Get Started <g-emoji class="g-emoji" alias="rocket" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f680.png">🚀</g-emoji>
 <hr>
 
-Check it out at https://serene-brushlands-80036.herokuapp.com/
+Check it out at https://serene-brushlands-80036.herokuapp.com/   (currently unmaintained and doesn't function well due to expired API keys and discontinued APIs)
 
 Hosted with Heroku free dyno so might take couple seconds to load. 
 
